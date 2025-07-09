@@ -261,3 +261,9 @@ HTML
 - Ul - Li
 - A tag
 - Emmet
+
+
+VScode html ctrl + H 찾기/ 전체변경
+
+id : css, js에서 문서내에서 요소를 구분할때 사용, 유일한 값을 가져야함
+name : id의 확장판, 서버와 연결될 시점에서 사용, 유일한 값을 가져야함
