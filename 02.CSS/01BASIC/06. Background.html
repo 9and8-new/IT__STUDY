@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{box-sizing:border-box;}
+        body{margin:0;padding: 0;}
+        .wrapper{height: 3000px;} /*body보다 높은 높이영역이라 스크롤이 만들어짐*/
+        .bg{
+            position: absolute;
+            top:500px;
+            width : 100%;
+            height: 400px;
+            background-color: orange;
+            /* background-immage : url('이미지 주소') 넣으면 이미지파일이 들어간다. */     
+            background-image: url('https://cdn.pixabay.com/photo/2019/12/16/21/50/sky-4700361_1280.jpg');
+              /*이미지 사이즈*/
+            /* background-size: contain; */
+            /* background-repeat: no-repeat;*/ /* 남는부분을 반복X하겠다  */
+            /* cover(width,height기준으로) : 영역을 빈틈없이 보여줌 / 전체 채우기 
+            contain : 해상도는 유지되도 남는부분은 반복적(repeat) 보여줌 / 이미지 비율에 맞게 지정 */
+            /* background-position: center; */
+
+            /* background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center; */
+
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="wrapper">
+        <div class="bg"></div>
+    </div>
+
+</body>
+</html>

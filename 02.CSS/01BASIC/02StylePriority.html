@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+    <style>
+        h1{
+            background-color: orange; 
+            color: white !important;} /*우선순위로 올리고 싶으면 !important를 사용*/
+            /* !important를 남발하면 뭐가 우선순위인지 헷갈리게 되서 권장X */
+    </style>
+    <link rel="stylesheet" href="./css/common.css"> <!-- lin로 href= ./css에서 /한번더 해서 하위폴더로 들어간다.-->
+    <!-- 외부에서 링크를 연결하거나 내부에서 진행할때 마지막에 있는 녀석을 스타일로 지정한다. -->
+</head>
+<body>
+    <!-- 
+        문서내 style 태그
+        외부 css 생성 이후 link 설정(권장)
+        inline style(권장 x) 
+        !important(권장 x) <-- 강제 적용
+    -->
+    <!-- <h1 style="background-color: red;color:black;">HELLO WORLD</h1> -->
+
+    <h1 style="background-color: red; color: black;">HELLOWORLD</h1>
+</body>
+</html>

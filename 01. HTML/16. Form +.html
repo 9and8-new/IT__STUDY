@@ -141,8 +141,8 @@
             type="password"
             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#.~_-])[A-Za-z\d@$!%*?&#.~_-]{8,20}$" 
             oninvalid="this.setCustomValidity('최소8자및최대20자,하나이상의대문자+하나의소문자+하나의숫자+하나의특수문자')" 
-            required
-            />
+            required/>
+            <!-- pattern에서 ^는시작 $끝 / (?=. 전방탐색) -->
         </div>
         <div class="row">
             <label>비밀번호 확인</label>
@@ -181,7 +181,15 @@
                 <option value="" selected>010</option> <!-- selected를 사용하여 기본값으로 지정-->
                 <option value="">011</option>
             </select>
-            <input type="text" />
+            <input 
+            type="text"
+            pattern="[0-9]{3,4}" 
+            oninvalid="this.setCustomValidity('개라슥아 똑띠해라!')" />
+            <!-- 정규표현식 문법 []{}-->
+            <!-- pattern="[들어가는 범위]{ 자릿수 }" -->
+            <!-- on이 붙으면 유용하지 않은 데이터가 들어올때 이벤트 발생시킴 -->
+            <!-- oninvalid="this.setCustomValidity('') = " -->
+             <!-- 유효성체크는 2번이상 해야한다. <매우중요> -->
             <input type="text" />
         </div>
 
@@ -192,15 +200,8 @@
                 <option value="">055</option>
                 <option value="">02</option>
             </select>
-            <input 
-            type="text" 
-            pattern="[0-9]{3,4}" 
-            oninvalid="this.setCustomValidity('개라슥아 똑띠해라!')"
-            /> <!-- 정규표현식 문법 []{}-->
-            <!-- pattern="[들어가는 범위]{ 자릿수 }" -->
-            <!-- on이 붙으면 유용하지 않은 데이터가 들어올때 이벤트 발생시킴 -->
-            <!-- oninvalid="this.setCustomValidity('') = " -->
-             <!-- 유효성체크는 2번이상 해야한다. <매우중요> -->
+            <input type="text" /> 
+            
             <input type="text" />
         </div>
         <div class="row">

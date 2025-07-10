@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            width: 100px;
+            max-width: 1280px;
+            min-width: 250px;
+            /* height: 300px; */
+            min-height: 400px;
+            background-color: green;
+        }
+
+        .son {
+            width: 150px;
+            height: 150px;
+            background-color: royalblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 
+        width : auto(기본값 : 최대너비를 가지려는 성질) 현재 브라우저의 너비를 최대한 다쓸려고 함
+        height : auto(기본값 : 최소높이를 가지려는 성질 ) 안에 내용물(컨텐츠)이 없을땐 표시X ->height 0이됨. 내용물(컨텐츠)이 있는만큼 높아짐
+
+        max-width   :   최대너비 
+        min-width   :   최소너비
+        max-height  :   최대높이
+        min-height  :   최소높이
+        
+    -->
+
+    <div class="parent">
+        <div class="son"></div>
+    </div>
+
+
+
+
+</body>
+
+</html>
