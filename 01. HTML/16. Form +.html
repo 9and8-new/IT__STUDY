@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* commonm */
+        * {
+            font-size: 0.9rem;
+            /*-- rem = 픽셀크기 */
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .btn {
+            border: 1px solid gray;
+            height: 100%;
+            min-width: 80px;
+            line-height: 35px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: red;
+            border: 0;
+        }
+
+
+
+        /* form */
+        form {
+            width: 380px;
+            border: 1px solid;
+            margin: 50px auto;
+            /* 앞쪽에 적는값은 위쪽아래쪽?.*/
+        }
+
+        form>.row {
+            margin: 10px;
+            /*행간 간격*/
+            display: flex;
+            justify-content: left;
+            /*자식애들 위치 좌측정렬*/
+            align-items: center;
+            /*수직 기준 위치 중간*/
+            gap: 5px;
+            height: 35px;
+        }
+
+        /*폼안에 있는 .row 클래스의 자식들을 지칭 / display:flex = 수평배치
+            */
+        form>.row>label {
+            display: block;
+            /*블럭형으로 변경*/
+            min-width: 85px;
+            /*최소 85px로 유지*/
+            height: 100%;
+            /*자식이100%면 부모의 수직높이를 그대로 받음. 35px*/
+            line-height: 35px;
+            /*수평배치 높이가35인데 똑같게 맞추면 수평배치됨  */
+            /* border: 1px solid; */
+        }
+
+        form>.row>input[type="text"],
+        /*input에 속성부여, [type="text"]로 input안에 text에만 속성부여한다는 뜻*/
+        form>.row>input[type="password"],
+        /*자식선택자 , 자식선택자 하면 두개를 한번에 조종가능*/
+        form>.row>select {
+            height: 100%;
+            width: 100%;
+            outline: none;
+            /*창에 포커스를 없앰*/
+            border-radius: 0;
+            border: 1px solid gray;
+            /*보더의 색상을 1픽셀 gray로 변경*/
+        }
+
+        .top-header {
+            height: 15px !important;
+            background-color: black !important;
+        }
+
+        .title {
+            margin-bottom: 50px !important;
+            border-bottom: 1px solid gray;
+            padding-bottom: 10px;
+        }
+
+        .title>h2 {
+            width: 100%;
+            text-align: center;
+            font-size: 2rem;
+
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <form action="/test.jsp" method="post">
+        <!-- method에서 get이 기본값이다 get은 정보가 노출되고 post는 정보가 안보임 -->
+        <div class="row top-header"> <!-- 행과 구별하기 위해 div태그 사용-->
+
+        </div>
+        <div class="row title">
+            <h2>회원가입</h2>
+        </div>
+
+        <div class="row">
+            <label>아이디</label>
+            <input 
+                name="userid" 
+                type="text" 
+                placeholder="아이디를 입력하세요"  
+                
+                required/> 
+                <!-- placeholder를 사용하여 박스칸에 설명을 붙임-->
+                 <!-- required = 유효성체크, 입력이 안되면 경고문구 -->
+            <a class="btn" href="javascript:void(0)">중복확인</a>
+        </div>
+        <div class="row">
+            <label>비밀번호</label>
+            <input 
+            name="password" 
+            type="password"
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#.~_-])[A-Za-z\d@$!%*?&#.~_-]{8,20}$" 
+            oninvalid="this.setCustomValidity('최소8자및최대20자,하나이상의대문자+하나의소문자+하나의숫자+하나의특수문자')" 
+            required
+            />
+        </div>
+        <div class="row">
+            <label>비밀번호 확인</label>
+            <input 
+            name="re-password" type="password" readonly />
+            <!--name이 같으면 안되서 re-를 붙임  -->
+            <!-- 비밀번호 가려야 해서 type = "password"-->
+            <!-- disabled :  비밀번호 확인에 포커스를 없앰/ 입력제한 --> 
+            <!-- readonly : 읽기전용으로 바꿈  -->
+            <!-- 
+                disabled :  서버전송 대상에서 제외,  입력불가.
+                readonly :  서버전송 대상에 포함,  입력불가, 읽기전용(더 많이씀)
+            -->
+        </div>
+        <div class="row">
+            <label>이름</label>
+            <input name="username" type="text" />
+        </div>
+        <div class="row">
+            <label>우편번호</label>
+            <input name="zipcode" type="text" />
+            <a class="btn" href="javascript:void(0)">검색</a>
+        </div>
+
+        <div class="row">
+            <label>기본주소</label>
+            <input name="addr1" type="text" />
+        </div>
+        <div class="row">
+            <label>상세주소</label>
+            <input name="adrr2" type="text" />
+        </div>
+        <div class="row">
+            <label>휴대전화</label>
+            <select> <!-- select를 넣어서 옵션을 추가-->
+                <option value="" selected>010</option> <!-- selected를 사용하여 기본값으로 지정-->
+                <option value="">011</option>
+            </select>
+            <input type="text" />
+            <input type="text" />
+        </div>
+
+        <div class="row">
+            <label>연락처</label>
+            <select> <!-- select를 넣어서 옵션을 추가-->
+                <option value="" selected>053</option> <!-- selected를 사용하여 기본값으로 지정-->
+                <option value="">055</option>
+                <option value="">02</option>
+            </select>
+            <input 
+            type="text" 
+            pattern="[0-9]{3,4}" 
+            oninvalid="this.setCustomValidity('개라슥아 똑띠해라!')"
+            /> <!-- 정규표현식 문법 []{}-->
+            <!-- pattern="[들어가는 범위]{ 자릿수 }" -->
+            <!-- on이 붙으면 유용하지 않은 데이터가 들어올때 이벤트 발생시킴 -->
+            <!-- oninvalid="this.setCustomValidity('') = " -->
+             <!-- 유효성체크는 2번이상 해야한다. <매우중요> -->
+            <input type="text" />
+        </div>
+        <div class="row">
+            <label>이메일</label>
+            <input type="text" /> <!-- 이메일은 text가 앞으로와야 작성이됨-->
+            <select> <!-- select를 넣어서 옵션을 추가-->
+                <option value="" selected>@naver.com</option> <!-- selected를 사용하여 기본값으로 지정-->
+                <option value="">@outlook.co.kr</option>
+                <option value="">@google.com</option>
+            </select>
+        </div>
+        <div class="row">
+            <label>이메일2</label>
+            <input type="email" /> <!-- 이메일은 text가 앞으로와야 작성이됨-->
+            <!-- 양식에 안맞게 입력후 회원가입하면 경고문구가뜸.
+                 하지만 required가 아니라서 공백으로 누르면 넘어가버림. -->
+        </div>
+        <div class="row">
+            <label>생년월일</label>
+            <input name="birth" type="radio" /> 양 <!-- type을 radio로 변경해서 하나만 체크되록(택1) 설정 / name에 동일한 이름을 넣어야함.-->
+            <input name="birth" type="radio" /> 음 <!-- 코드가 닫힌뒤 제목을 입력-->
+        </div>
+        <div class="row">
+            <select> <!-- select를 넣어서 옵션을 추가-->
+                <option value="" selected>2025</option> <!-- selected를 사용하여 기본값으로 지정-->
+                <option value="">2024</option>
+                <option value="">1998</option>
+            </select>
+            <select> <!-- select를 넣어서 옵션을 추가-->
+                <option value="" selected>12</option> <!-- selected를 사용하여 기본값으로 지정-->
+                <option value="">11</option>
+                <option value="">10</option>
+            </select>
+            <select> <!-- select를 넣어서 옵션을 추가-->
+                <option value="" selected>01</option> <!-- selected를 사용하여 기본값으로 지정-->
+                <option value="">02</option>
+                <option value="">09</option>
+            </select>
+        </div>
+        <hr />
+        <div class="row">
+            <!-- id는 현재페이지 유일한값, class는 현재페이지 묶을때-->
+            <input id="email-recv" type="checkbox" /> <!-- checkbox는 많이 사용됨  -->
+            <label for="email-recv">이메일 수신에 동의합니다</label> <!-- for와 name의 이름은 일치해야함-->
+        </div>
+        <div class="row">
+            <!-- <label></label>                           id는 현재페이지 유일한값, class는 현재페이지 묶을때 -->
+            <input id="sms-recv" type="checkbox" /> <!-- checkbox는 많이 사용됨  -->
+            <label for="sms-recv">문자메시지 수신에 동의합니다.</label> <!-- for와 name의 이름은 일치해야함-->
+        </div>
+        <div class="row">
+            <input class="btn btn-submit" type="submit" value="회원가입" />
+        </div>
+    </form>
+</body>
+
+</html>
