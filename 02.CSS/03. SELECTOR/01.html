@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 전체선택자 = body를 포함한 전체 선택자 */
+        *{box-sizing: border-box; } /* 보더로 잡으면 위스로 잡힘*/
+        /* 요소 선택자  */
+        div{ /* div테그는 넓은 단위의 테그로 사용이 가능하다.*/
+            width:150px;
+            height:150px;
+            border : 1px solid;
+            margin: 10px;
+        }
+        /* id선택자 : 유일한 요소 지정 / 문서내에 1개만(동일X) 있어야한다. */
+        /* 자바스크립트를 사용하면 하나만 나온다. 그래서 1개만 지정 */
+        #id_1{
+            background-color: red;
+        }
+        /* #id명 을 하면 id를 선택한다. */
+
+        /* class선택자 : 특정 태그 그룹지정 */
+        .c1{
+            background-color: royalblue;
+        }
+        /* 우선순의 ID 선택자 >> class */
+        /* 태그명과 상관없이 공통된 태그에 사용할때 class를 많이 쓴다. */
+
+        /* 그룹선택자 : , *  */
+        /* 변수명,변수명{} 이런식으로 두개를 한번에 옵션을 부과할 수 있다.  */
+        #id_1,
+        .c1{
+            border-radius: 50px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="c1"></div>
+    <div id="id_1"></div>
+    <div></div>
+    <div class="c1"></div>
+    <div>
+        <p class="c1">HELLO WORLD</p>
+    </div>
+
+    <!-- <script>
+        const a = document.getElementById('id_1')
+        a.style.backgroundColor
+    </script> -->
+
+</body>
+</html>

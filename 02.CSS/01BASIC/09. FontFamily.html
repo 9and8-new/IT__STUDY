@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- GOOGLE FONT LINK -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+VN+Guides&display=swap" rel="stylesheet">
+
+    <!-- 구글폰트 링크를 적용한뒤, CSS코드를 style로 class지정한다.-->
+    <style>
+        .playwrite-vn-guides-regular {
+            font-family: "Playwrite VN Guides", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /* 글꼴 등록 */
+        @font-face {
+            font-family: 'custom01';
+            src: url(./fonts/custom-font-01.ttf);
+            /* url에 불러온 파일을 적용시키면 된다.*/
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'SkyblessingInjeFontTTF';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2507-1@1.0/SkyblessingInjeFontTTF.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+       /*바지쪽에 메인폰트를 넣는다. / 첫번째가 메인, 두번째가 서브*/ 
+       body{
+            font-family:'custom01', 'SkyblessingInjeFontTTF';
+            font-size: 100px;
+        }
+/* body에 font-size로 크기설정도 가능 */
+    </style>
+
+</head>
+
+<body>
+
+
+    <div style="font-family:'Times New Roman', Times, serif">HELLOWORLD</div>
+    <div class="playwrite-vn-guides-regular">HELLOWORLD</div>
+    <div style="font-family:custom01">안녕하세요 HELLOWORLD</div>
+    <div style="font-family: SkyblessingInjeFontTTF"> 안녕하세요 HELLOWORLD</div>
+    <div>HELLOWORLD</div>
+    <div>HELLOWORLD</div>
+    <div>HELLOWORLD</div>
+    <div>HELLOWORLD</div>
+    <div>HELLOWORLD</div>
+    <div>HELLOWORLD</div>
+
+
+
+
+</body>
+
+</html>

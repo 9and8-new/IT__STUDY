@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: greenyellow;
+        }
+
+        .d1 {
+            /* all direction 동일 설정  */
+            /* margin:20px; 4방향으로 외부 20px 마진 생기기 */
+
+            /* top, bottom left,right */
+            /* margin : 20px 40px; 앞에가 위아래, 뒤에가 좌우 */
+
+            /* top: 10px, right: 20px, bottom:30px,left:40px 시계방향임 left를 지정안하면 right랑 같음  */
+            /* margin: 10px 20px 30px 40px; */
+
+            /* 따로따로 지정도 가능 */
+            margin-top: 10px;
+            margin-left: 20px;
+            margin-bottom: 30px;
+            margin-right: 40px;
+        }
+
+        .d2 {
+            margin: 0 auto;
+            /* 좌우위아래 같은값으로 나옴*/
+        }
+
+        .parent {
+            width: 80vw;
+            /* 뷰포트 기준 80*/
+            height: 250px;
+            margin: 20px auto;
+        }
+
+        .son {
+            background-color: yellow;
+            width: 150px;
+            height: 150px;
+        }
+
+
+        /* *** son을 중앙으로 배치하는 법 *** 중요함
+           1번째는 margint + position을 이용해서 중앙으로 배치
+           2번째는 layout 코드를 사용해서 중앙으로 배치 */
+        .p1 {
+            position: relative;
+            /* 상위가 고정*/
+        }
+
+        /* 1번째 방법 */
+        .s1 {
+            position: absolute;
+            left: 0;
+            /*왼쪽을 얼마나 띄울것이냐*/
+            right: 0;
+            /*오른쪽을 얼마나 띄울것이냐*/
+            top: 0;
+            /*위쪽을 얼마나 띄울것이냐*/
+            bottom: 0;
+            /*아래쪽을 얼마나 띄울것이냐*/
+            margin: auto;
+            /*현재 전부0이라 부모를 기준으로 가운데로 정해줌.*/
+
+        }
+
+        /* 2번째 방법 부모에게 포커스 맞춤 */
+        .p2 {
+            display: flex;
+            justify-content: center;
+            /* 수평(중앙) */
+            align-items: center;
+            /* 수직(중앙) */
+        }
+
+        /* 1번과 2번 차이점
+            1번째는 자식이 또있더라도(새로운게 추가되더라도) 상관없이 가운데 배치됨.
+             ex)로고 이미지 잡을때 좋음 / 추가되더라도 영향X
+            2번째는 자식이 또있더라도(새로운게 추가되더라도) 배치를하는것이기 때문에 
+            추가된것도 가운데로 추가됨 / 추가되면 영향O */
+    </style>
+
+</head>
+
+<body>
+
+    <!-- <div class="d1">HELLO WORLD</div> -->
+
+    <!-- <div class="d2">HELLO WORLD</div> -->
+
+    <div class="parent p1">
+        <div class="son s1"></div>
+        <div class="son"></div>
+    </div>
+
+    <div class="parent p2">
+        <div class="son s2"></div>
+        <div class="son"></div>
+    </div>
+
+</body>
+
+</html>

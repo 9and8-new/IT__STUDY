@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            margin: 30px;
+            border: 1px solid;
+        }
+
+        .d1 {
+            border-top:2px solid red; /* solid는 실선을 의미함*/
+            border-right: 3px dashed greenyellow; /* dash 대시는 짧은선과 간격반복 */
+            border-bottom: 4px dotted blue; /* dotted는 점선*/
+            border-left: 5px double orange; /* double 이중선*/
+        }
+        .d2 {
+            /* border-radius: 50%; radius 모서리 깎기 */
+            /* border-radius: 10px%; */
+               /* border-radius: 10px 50px; */
+               /* border-radius: 10px 50px 80px; */ /* top,right,bottom*/
+        }
+        /* 삼각형만들기 */
+        .d3 {
+            border-top:20px solid transparent;
+            border-right:20px solid red;
+            border-bottom:20px solid red;
+            border-left:20px solid transparent; /*transparent : 투명한*/
+            width: 0px;
+            height: 0px;
+        }
+
+        /* 종이접기 */
+        .d4 {
+            position:relative;
+            border: 1px solid blue;
+            
+        }
+        /* 가상선택자 없는테그지만 특정테그 있는것처럼 효과부여
+           가상선택자는 자주 안쓰는것이 좋다.JSC에서 접근할때 방식이다름
+           CSS효과 부여할때만 사용 */
+        .d4::after{
+            content:'';
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            border-top:20px solid white;
+            border-right:20px solid red;
+            border-bottom:20px solid black;
+            border-left:20px solid white; /*transparent : 투명한*/
+            width: 0px;
+            height: 0px;
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="d1"></div>
+    <div class="d2"></div>
+    <div class="d3"></div>
+    <div class="d4"></div>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+마이크로소프트 사진
+vs코드(live server, auto rename tag, open in browser, Korean Language Pack for Visual Studio Code) -> 파일눌러서 자동저장 켜기
+폴더에서 cmd -> code . 을 하면 현재 폴더에서 vscode를 실행시키는 뜻임. git을 옮기는게 아님
+
+깃
+
+시스템 고급설정 -> 애니메이션 효과 다 끄기
+
+백그라운드앱 gamebar 도움말, 스티커, 휴대폰연결, cortana 끄기
+
+Source Tree 다음다음다음 키에서 아니오
+
+Korean Language Pack for Visual Studio Code
