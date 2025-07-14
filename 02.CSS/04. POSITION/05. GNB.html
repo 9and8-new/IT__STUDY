@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* common(공통영역) */
+        *{box-sizing: border-box;}
+        ul{padding:0; margin:0;list-style: none;}
+        a{text-decoration: none; color:black;}
+        body{margin:0; padding: 0;}
+
+        /* main page */
+
+        /* header */
+        .wrapper{}
+        .wrapper>header{}
+        .wrapper>header>.top-header{}
+        .wrapper>header>nav{
+            /* border : 1px solid;*/
+            height: 50px; 
+        }
+
+        /* nav's menu */
+        .wrapper>header>nav>ul.main-menu{
+            display: flex; /* display를 flex하면 수평배치가 된다.*/
+            justify-content: space-between; /* 사이사이간격을 균일하게 지정*/
+            flex-direction: column; /*메인메뉴 배치하는법 column세로배치*/
+            height: 100%;
+            background-color: orange; } 
+            /* 레이아웃임 */
+        .wrapper>header>nav>ul.main-menu>li{
+            /* border: 1px solid; */
+            height: 100%;
+            padding : 0 20px; 
+            background-color :  royalblue;
+            width: 150px;
+
+            /* !! 메인메뉴의 리스트에 포지션잡기 !! */
+            position: relative;
+
+        }
+        .wrapper>header>nav>ul.main-menu>li>a{
+            display: block; /* 인라인에서 블럭으로 태그 변경*/
+            height: 100%;
+            line-height: 50px;
+            color : white;
+        }
+        .wrapper>header>nav>ul.main-menu>li>ul.sub-menu{
+            /* border: 1px solid; 자꾸 쓰면서 블럭인지 라인인지 확인하기 */
+            width:100%;
+            height: 100%;
+            /* !!! */
+            position: absolute; /* width를 새로 지정해야함*/
+            left:150px;
+            top:0px;
+
+            display:none; /*리스트에 마우스 가져다 댈때 보여야해서 none지정*/
+        }
+        .wrapper>header>nav>ul.main-menu>li>ul.sub-menu>li{
+            background-color: yellowgreen;
+            height: 50px;
+            line-height:50px;
+            padding : 0 20px;
+        }
+        .wrapper>header>nav>ul.main-menu>li>ul.sub-menu>li>a{
+            display: block;
+            color : white
+        }
+
+
+        /* 메인메뉴에 hover하면 li가 다 나오도록 */
+        .wrapper>header>nav>ul.main-menu:hover>li>.sub-menu{
+            display:block;
+        }
+
+        .wrapper>header>nav>ul.main-menu:hover{
+            height: 350px;
+        }
+
+        /* main */
+        .wrapper>main{}
+        .wrapper>main>section{}
+        /* footer */
+        .wrapper>footer{}
+        
+    </style>
+</head>
+<body>
+    
+
+    <!-- .wrapper>header>.top-header+nav^main>section^footer -->
+    <div class="wrapper">
+        <header>
+            <div class="top-header"></div>
+            <nav>
+                <ul class="main-menu">
+                    <li>
+                        <a href="javascript:void(0)">1_MAINMENU</a>
+                        <ul class="sub-menu">
+                            <li><a href="javascrip:void(0)">1_SUBMENU</a></li>
+                            <li><a href="javascrip:void(0)">2_SUBMENU</a></li>
+                            <li><a href="javascrip:void(0)">3_SUBMENU</a></li>
+                            <li><a href="javascrip:void(0)">4_SUBMENU</a></li>
+                            <li><a href="javascrip:void(0)">5_SUBMENU</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">2_MAINMENU</a>
+                        <ul class="sub-menu">
+                            <li><a href="javascrip:void(0)">6_SUBMENU</a></li>
+                            <li><a href="javascrip:void(0)">7_SUBMENU</a></li>
+                            <li><a href="javascrip:void(0)">8_SUBMENU</a></li>
+                            <li><a href="javascrip:void(0)">9_SUBMENU</a></li>
+                            <li><a href="javascrip:void(0)">10_SUBMENU</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">3_MAINMENU</a>
+                        <ul class="sub-menu">
+                            <li><a href="javascrip:void(0)">11_SUBMENU</a></li>
+                            <li><a href="javascrip:void(0)">12_SUBMENU</a></li>
+                            <li><a href="javascrip:void(0)">13_SUBMENU</a></li>
+                            <li><a href="javascrip:void(0)">14_SUBMENU</a></li>
+                            <li><a href="javascrip:void(0)">15_SUBMENU</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">4_MAINMENU</a>
+                        <ul class="sub-menu">
+                            <li><a href="javascrip:void(0)">16_SUBMENU</a></li>
+                            <li><a href="javascrip:void(0)">17_SUBMENU</a></li>
+                            <li><a href="javascrip:void(0)">18_SUBMENU</a></li>
+                            <li><a href="javascrip:void(0)">19_SUBMENU</a></li>
+                            <li><a href="javascrip:void(0)">20_SUBMENU</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+
+            </nav>
+        </header>
+        <main>
+            <section></section>
+        </main>
+        <footer></footer>
+    </div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

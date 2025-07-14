@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* common
+        * {
+            box-sizing: border-box;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /* header */
+        /* .wrapper {}
+
+        .wrapper>header {}
+
+        .wrapper>header>.top-header {}
+
+        .wrapper>header>nav { */
+            /* border : 1px solid; }*/
+
+
+        /* nav's menu */
+        /* .wrapper>header>nav>ul.main-menu {
+
+        }
+
+        .wrapper>header>nav>ul.main-menu>li {
+
+        }
+
+        .wrapper>header>nav>ul.main-menu>li>a {
+
+        } */ 
+
+                /* common(공통영역) */
+        *{box-sizing: border-box;}
+        ul{padding:0; margin:0;list-style: none;}
+        a{text-decoration: none; color:black;}
+        body{
+            margin:0; 
+            padding: 0;
+            font-size: .8rem;}
+
+        /* main page */
+
+        /* header */
+        .wrapper{}
+        .wrapper>header{}
+        .wrapper>header>.top-header{}
+        .wrapper>header>nav{
+            height: 50px;
+            border-bottom: 1px solid lightgray; 
+            /* background-color: orange; */
+        }
+
+        /* nav's menu */
+        .wrapper>header>nav>ul.main-menu{
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+            gap: 20px;
+            height: 100%;
+
+        } /* 레이아웃임 */
+        .wrapper>header>nav>ul.main-menu>li{
+            height: 100%;
+            min-width: 50px;
+            line-height: 50px;
+            /* border: 1px solid; */
+            padding: 0 15px;
+            
+            position: relative;
+
+        }
+        .wrapper>header>nav>ul.main-menu>li>a{
+            display: block; /* 블럭으로 잡아야 리스트가 따라온다.*/
+        }
+        .wrapper>header>nav>ul.main-menu>li>ul.sub-menu{
+            border: 1px solid;
+
+            padding: 0 15px;
+            padding-bottom: 10px;
+            position: absolute;
+
+            left: 0;
+            top:50px;
+            width: 140px; 
+            border-right: 1px solid lightgray; 
+            border-left: 1px solid lightgray; 
+            border-bottom: 1px solid lightgray; 
+            
+            display:none;
+
+        }
+        .wrapper>header>nav>ul.main-menu>li>ul.sub-menu>li{
+            max-height : 35px;
+
+        }
+        .wrapper>header>nav>ul.main-menu>li>ul.sub-menu>li>a{}
+        .wrapper>header>nav>ul.main-menu>li:hover>.sub-menu{}
+
+        .wrapper>header>nav>ul.main-menu>li:hover>ul.sub-menu{
+            display : block;
+        }
+
+        /* main */
+        .wrapper>main{}
+        .wrapper>main>section{}
+        /* footer */
+        .wrapper>footer{}
+        
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <div class="top-header">
+
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li>
+                        <a href="javascrip:void(0)">ALL
+                            <ul class="sub-menu">
+                                <li><a href="javascript:void(0)">패키지</a></li>
+                                <li><a href="javascript:void(0)">신발</a></li>
+                                <li><a href="javascript:void(0)">의류</a></li>
+                                <li><a href="javascript:void(0)">키즈</a></li>
+                                <li><a href="javascript:void(0)">용품</a></li>
+                                <li><a href="javascript:void(0)">COLLABORATION</a></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascrip:void(0)">BEST
+                            <ul class="sub-menu">
+                                <li><a href="javascript:void(0)">패키지</a></li>
+                                <li><a href="javascript:void(0)">신발</a></li>
+                                <li><a href="javascript:void(0)">의류</a></li>
+                                <li><a href="javascript:void(0)">키즈</a></li>
+                                <li><a href="javascript:void(0)">용품</a></li>
+                                <li><a href="javascript:void(0)">COLLABORATION</a></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascrip:void(0)">충무공 이순신 시리즈
+                            <ul class="sub-menu">
+                                <li><a href="javascript:void(0)">패키지</a></li>
+                                <li><a href="javascript:void(0)">신발</a></li>
+                                <li><a href="javascript:void(0)">의류</a></li>
+                                <li><a href="javascript:void(0)">모자</a></li>
+                                <li><a href="javascript:void(0)">키즈</a></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascrip:void(0)">꿈의신소재 그래핀원단
+                            <ul class="sub-menu">
+                            </ul>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascrip:void(0)">친환경 소로나 원단
+                            <ul class="sub-menu">
+                            </ul>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascrip:void(0)">라스트 사이즈
+                            <ul class="sub-menu">
+                                <li><a href="javascript:void(0)">신발</a></li>
+                                <li><a href="javascript:void(0)">의류</a></li>
+                            </ul>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+
+
+</body>
+
+</html>
