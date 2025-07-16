@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기본</title>
+    <style>
+        *{
+            /* box-sizing: content-box; */
+        }
+
+        .box{
+            box-sizing: border-box; 
+            /* border안에 padding이 넓이 높이최대값을 넘지 못한다.
+               하지만 margin은 border외부이기 때문에 상관없다. */
+            border: 1px solid;
+            margin: 0 auto;
+            padding: 30px;
+            width: 50px;
+            height: 50px;
+
+
+        }
+        div{
+            border: 1px solid;
+            margin: 0 50vw;
+            /* 0 auto는 수평 중앙정렬할때 사용 / 수직방향은 적용X */
+            padding: 30px;
+            width: 50px;
+            height: 50px;
+            
+        }
+    </style>
+</head>
+<body>
+    
+
+    <p class="box">HELLOWORLD</p>
+    <div >HELLOWORLD</div>
+
+</body>
+</html>
