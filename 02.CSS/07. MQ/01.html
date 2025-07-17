@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{height:150px; background-color: chartreuse;transition: .5s;}
+
+        /* 태블릿 가로 */
+        /* 화면을 보여주는 screen */
+        @media screen and (max-width:1024px ){
+            div{height:120px; background-color: darkgreen;}
+        }
+
+        /* 모바일 가로 */
+        @media screen and (max-width:480px ){
+            div{height:70px; background-color: red;}
+            }
+            /* 미디어파일은 CSS처럼 따로 뺴서 관리하는게 좋다 */
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>마이페이지</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: sans-serif;
+      background: #fff;
+      color: #222;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      margin: 50px auto;
+      border: 1px solid #aaa;
+      min-height: 800px;
+    }
+
+    /* --- 왼쪽 사이드바 --- */
+    .sidebar {
+      width: 240px;
+      border-right: 1px solid #ccc;
+      padding: 20px;
+      background-color: #fff;
+    }
+
+    .sidebar h2 {
+      font-size: 14px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #000;
+    }
+
+    .sidebar-section {
+      margin-bottom: 30px;
+    }
+
+    .sidebar-section h3 {
+      font-size: 12px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .sidebar-section ul {
+      list-style: none;
+    }
+
+    .sidebar-section li {
+      font-size: 13px;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+
+    .btn-inquiry {
+      display: inline-block;
+      padding: 8px 12px;
+      border: 1px solid #000;
+      font-size: 13px;
+      text-align: center;
+      margin-top: 20px;
+      background-color: white;
+      cursor: pointer;
+    }
+
+    /* --- 오른쪽 컨텐츠 --- */
+    .content {
+      flex: 1;
+      padding: 30px;
+      background: #fff;
+      position: relative;
+    }
+
+    .box-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .box {
+      width: 32%;
+      background-color: #d4cac1;
+      padding: 20px;
+      text-align: center;
+      color: #333;
+      position: relative;
+    }
+
+    .box .title {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .box .number {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .buttons button {
+      padding: 6px 12px;
+      font-size: 13px;
+      border: none;
+      background-color: #000;
+      color: white;
+      cursor: pointer;
+    }
+
+    .empty {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 13px;
+    }
+
+    .empty button {
+      margin-top: 10px;
+      padding: 6px 10px;
+      font-size: 12px;
+      background: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- 왼쪽 사이드바 -->
+    <aside class="sidebar">
+      <h2>최 * 호</h2>
+      <div class="sidebar-section">
+        <h3>나의 쇼핑정보</h3>
+        <ul>
+          <li>주문배송조회</li>
+          <li>취소/교환/반품 내역</li>
+          <li>상품 리뷰</li>
+          <li>주문내역</li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <h3>MY PAGE</h3>
+        <ul>
+          <li>회원정보수정</li>
+          <li>내 포인트 / 혜택</li>
+          <li>쿠폰조회</li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <h3>고객센터</h3>
+        <ul>
+          <li>1:1 문의</li>
+          <li>FAQ</li>
+          <li>고객의 소리</li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <h3>DAYFUL_INFO</h3>
+        <ul>
+          <li>공지사항</li>
+          <li>회사정보</li>
+          <li>제품정보</li>
+        </ul>
+      </div>
+
+      <div class="btn-inquiry">1:1 문의 시작하기 &gt;</div>
+    </aside>
+
+    <!-- 오른쪽 메인 콘텐츠 -->
+    <section class="content">
+      <div class="box-row">
+        <div class="box">
+          <div class="title">Newbie</div>
+          <div class="number">-</div>
+        </div>
+        <div class="box">
+          <div class="title">나의 주문수</div>
+          <div class="number">2</div>
+        </div>
+        <div class="box">
+          <div class="title">상품 리뷰</div>
+          <div class="number">10</div>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button>1:1 문의 등록</button>
+        <button>1:1 문의 조회</button>
+      </div>
+
+      <div class="empty">
+        등록하신 내역이 없습니다.<br>
+        <button>등록 하기</button>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>

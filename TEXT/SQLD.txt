@@ -1,0 +1,47 @@
+RAGE 파티션 / LIST 파티션 / HASH 파티션을 구분하는 문제 나올 수 있음 /  출제율↓
+
+SQL 사용 종류
+DDL - 테이블 / 스키마 (생성,수정,삭제) 관련
+=> VIEW ( CREATE VIEW)
+==> 생성 : CREATE, 삭제 : DROP, 수정 : ALTER
+DML - 테이블 내에 있는 데이터 (조회,생성,수정,삭제...)
+==> 생성 : INSERT, 삭제 : DELETE, 수정 : UPDATE, 조회 : SELECT
+=> 뒤에 뭐가 붙는지 외우기!
+생성 : INSERT INTO ~ VALUES,
+삭제 : DELETE FROM ~,
+수정 : UPDATE ~ SET,
+조회 : SELECT
+
+INSERT 시 맞는 구문은?
+1. INSERT 테이블 VALUES (A,B,C);
+2. INSERT INTO 테이블 ('A', 'B', 'C');
+3. INSERT INTO 테이블 VALUES ('A', 'B', 'C');
+4. INSERT INTO VALUES (A, B, C); --> ''가 없으면 테이블 이름이 되어버림->알리가 됨
+5. INSERT INTO 테이블 (A) VALUES ('A') --> 벨류 1개가 되면 테이블도 1개
+
+<UPDATE>
+UPDATE FROM ~~
+UPDATE A SET A = 'B'
+UPDATE 
+
+DCL - 유저 관련
+TCL - 트랜잭션 관련
+
+
+
+
+
+
+
+유니크는 NULL이 된다 (중복은 안됨)
+PK는 NULL이 안된다. (중복도 안됨)
+*** 무결성 제약 조건 위반 : PK는 중복될 수 없다 *** <<< 시험에 꼭 나옴
+ON DELETTE CASCADE 에 많이 나옴 -- DDL 속성부분
+PK특징, 유니크특징, CHECK에 관해 나올 수 있음.
+
+DCL은 권한관련 명령어 문제가 많이 나온다. GRANT, REVOKE
+DCL은 롤(ROLE)이랑 권한관련을 무조건 알아야한다.
+
+TCL = 문제 2~3개 나올 수 있음.
+TCL에 트랜잭션의 특징 외우기.
+격리수준 *****

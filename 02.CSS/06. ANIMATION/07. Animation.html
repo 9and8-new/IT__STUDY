@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+         div {
+            width: 400px;
+            height: 40px;
+            background-color: orange;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid black;
+        }
+        div:nth-child(1){
+            animation-name:moving1;
+            animation-duration: 2s;
+            /* 애니메이션 작동기간 */
+            animation-iteration-count: 2;
+            /* 반복작동 횟수 / 반복주기 / 무한반복 : infinite*/
+            animation-iteration-count: 2;
+            /* 애니메이션 방향 / alternate : 양방향 */
+        }
+        div:nth-child(2){
+            animation-name: moving2;
+            animation-duration:3s;
+            /* 애니메이션 작동기간 */
+            animation-iteration-count: 2;
+            /* 반복작동 횟수 / 반복주기 / 무한반복 : infinite*/
+            animation-iteration-count: 2;
+            /* 애니메이션 방향 / alternate : 양방향 */
+        }
+
+        @keyframes moving1{
+            from{margin-left: 100%;}
+            /* 시작위치 */
+            to{margin-left:0%;}
+            /* 공용위치 */
+        }
+        /* 애니메이션 동작관련 설정
+           @ : 요청/ ~~로 해달라고 할때 @를 붙임 or 내용을 알려줄때 */
+
+         @keyframes moving2{
+            from{margin-top: 100%;}
+            /* 시작위치 */
+            to{margin-top:0%;}
+            /* 공용위치 */
+        }
+    </style>
+</head>
+
+<body>
+    
+    
+    
+    
+    <div>HELLOWORLD</div>
+    <div>HELLOWORLD</div>
+
+
+</body>
+</html>

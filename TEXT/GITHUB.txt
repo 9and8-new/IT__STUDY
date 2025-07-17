@@ -1,0 +1,95 @@
+07/01
+
+GITHUB 기본
+
+1. GIT -> GITHUB
+
+2 GITHUB -> GIT
+
+---------------------------------------------------------------------------------------------------------------------
+[GIT에서 GITHUB로 업로드]
+
+Microsoft Windows [Version 10.0.19045.5965]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\GITTEST>git init
+Initialized empty Git repository in C:/GITTEST/.git/
+
+C:\GITTEST>gitt add *
+'gitt'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+배치 파일이 아닙니다.
+
+C:\GITTEST>git add *
+
+C:\GITTEST>git commit -m "V0.0"
+[master (root-commit) 3d1d8d4] V0.0
+ 1 file changed, 1 insertion(+)
+ create mode 100644 aaa.txt
+
+C:\GITTEST>git log --oneline
+3d1d8d4 (HEAD -> master) V0.0
+
+C:\GITTEST>git branch
+* master
+
+C:\GITTEST>git branch -M main
+
+C:\GITTEST>git branch
+* main
+
+C:\GITTEST>git remote -v
+
+C:\GITTEST>git remote add origin https://github.com/9and8-new/GITHUB-TEST.git
+
+C:\GITTEST>git remote -v
+origin  https://github.com/9and8-new/GITHUB-TEST.git (fetch)
+origin  https://github.com/9and8-new/GITHUB-TEST.git (push)
+
+C:\GITTEST>git push origin
+fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+C:\GITTEST>git push --set-upstream origin main
+info: please complete authentication in your browser...
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 207 bytes | 207.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/9and8-new/GITHUB-TEST.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+-----------------------------------------------------------------------------------------------------------------------------
+
+[GIT 초기]
+1. GIT설치 (git download)
+
+2. git config 설정
+git config --global user.email "github eamil"
+git config --global user.name "github nickname"
+
+3. 재부팅 해주고 시작
+
+---------------------------------------------------------------------------------------------------------------------------
+git push origin --> GITHUB로 전송
+git clone ~~~ --> GITHUB에서 받아오기 (처음 받아올때)
+git pull origin --> GITHUB에서 받아온 뒤 한번더 받아오는 GITHUB --> GIT
+
+---------------------------------------------------------------------------------
+draw.io --> 웹에서 사용
+또는 어플 다운
+
+----------------------------------------------------------------------
+(usecase)
+1. <<Include>> ==> 두 개의 유스케이스 간의 의존성을 뜻함
+하나가 실행될때 포함 관계에 있는 유스케이스가 반드시 실행되어야함
+
+2. <<Extend>> ==> 두 개의 유스케이스 간의 확장성을 뜻함
+하나의 유스케이스가 실행될 때 포함 관계에 있는 유스케이스가 특정 상황에서만 실행된다는 뜻
+
+
