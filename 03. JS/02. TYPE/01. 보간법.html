@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        //보간법
+        //변수,함수 호출 및 산술 표현식을 문자열에 직접 삽일할 수 있는 기능
+        // ${value} 형식을 사용, 백틱(``)에만 사용가능
+
+        //변수시정 : let, 상수지성 : const
+        //변수를 왜 쓰는가? 실수와, 시간을 줄이기 위해 / 값이 바뀌는
+        //상수를 왜 사용하는가? 코드에 의도,의미를 부여하기 위해 / 안바꾸는 상수값
+
+        //변수시정 : let, 상수지성 : const
+        let str1 = "hello";
+        let str2 = "world";
+        console.log(str1 + str2); 
+        // () = Functor / Functor안에 값을 꺼내와서 처리함
+
+        //  `` = ``안에 쓴 기본 언어(문자,인트)는 그대로 작동하되, ${}사용한 것들은 연산이든 뭐든 적용이 된다.
+
+        let str3 = `TEST1 : ${str1} / ${str2}`; 
+        // 문자열안에 지정된 변수를 가져와서 다시 만드는 작업 ``
+        let str4 = `TEST2 : ${10+20+30}`;
+        let str5 = `10>20 ? ${10>20}`;
+        // 10이 20보다 크지? $로 답이 나옴
+        console.log(str3);
+        console.log(str4);
+        console.log(str5);
+    </script>
+
+
+</body>
+</html>

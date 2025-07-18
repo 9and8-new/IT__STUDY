@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>고객센터 FAQ</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: sans-serif;
+      background: #fff;
+      color: #222;
+    }
+
+    .container {
+      display: flex;
+      width: 1664px;
+      min-height: 1726px;
+      margin: 0 auto;
+      border: 1px solid #000;
+    }
+
+    /* --- 사이드바 --- */
+    .sidebar {
+      width: 240px;
+      border-right: 1px solid #000;
+      padding: 30px 20px;
+      background: #fff;
+    }
+
+    .sidebar h2 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .btn-inquiry-list {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      font-size: 13px;
+      padding: 6px 10px;
+      margin-bottom: 30px;
+      cursor: pointer;
+    }
+
+    .sidebar-section {
+      margin-bottom: 30px;
+    }
+
+    .sidebar-section h3 {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .sidebar-section ul {
+      list-style: none;
+    }
+
+    .sidebar-section li {
+      font-size: 13px;
+      margin-bottom: 6px;
+      cursor: pointer;
+    }
+
+    .btn-inquiry-start {
+      margin-top: 20px;
+      display: inline-block;
+      font-size: 13px;
+      padding: 6px 10px;
+      border: 1px solid #000;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    /* --- 콘텐츠 --- */
+    .content {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .top-boxes {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .top-box {
+      flex: 1;
+      background: #e7e0da;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .top-box .title {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .top-box .number {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .npay {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .notice {
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .faq-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .faq-table tr {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .faq-table td {
+      padding: 12px 8px;
+    }
+
+    .faq-table td.category {
+      width: 100px;
+      color: #888;
+    }
+
+    .footer-msg {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .btn-bottom-inquiry {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      background: #000;
+      color: #fff;
+      padding: 10px 20px;
+      display: inline-block;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>최 * 호</h2>
+      <div class="btn-inquiry-list">1:1 문의내역</div>
+
+      <div class="sidebar-section">
+        <h3>나의 쇼핑정보</h3>
+        <ul>
+          <li>주문배송조회</li>
+          <li>취소/교환/반품 내역</li>
+          <li>상품리뷰</li>
+          <li>주문내역</li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <h3>MY PAGE</h3>
+        <ul>
+          <li>회원정보수정</li>
+          <li>내 포인트 혜택</li>
+          <li>쿠폰조회</li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <h3>고객센터</h3>
+        <ul>
+          <li>1:1 문의</li>
+          <li>FAQ</li>
+          <li>고객의 소리</li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <h3>DAYFUL_INFO</h3>
+        <ul>
+          <li>공지사항</li>
+          <li>회사정보</li>
+          <li>제품정보</li>
+        </ul>
+      </div>
+
+      <div class="btn-inquiry-start">1:1 문의 시작하기 &gt;</div>
+    </aside>
+
+    <section class="content">
+      <div class="top-boxes">
+        <div class="top-box">
+          <div class="title">Newbie</div>
+          <div class="number">-</div>
+        </div>
+        <div class="top-box">
+          <div class="title">나의 쿠폰</div>
+          <div class="number">2</div>
+        </div>
+        <div class="top-box">
+          <div class="title">상품 리뷰</div>
+          <div class="number">10</div>
+        </div>
+      </div>
+
+      <div class="npay">N Pay <span style="font-weight:normal; font-size:13px;">결제시 5% 적립</span></div>
+      <div class="notice">문의 유형 선택<br>문의 유형을 선택해 주세요. 고객센터 상담보다 더 빠르게 해결할 수 있습니다.</div>
+
+      <table class="faq-table">
+        <tr><td class="category">배송일정</td><td>언제 배송되는지 알고싶어요.</td></tr>
+        <tr><td class="category">취소/주문</td><td>주문 취소를 하고 싶어요.</td></tr>
+        <tr><td class="category">교환/방법</td><td>상품을 배송받았는데 교환을 하고 싶어요.</td></tr>
+        <tr><td class="category">취소/환불</td><td>환불 금액은 언제 입금되나요?</td></tr>
+        <tr><td class="category">반품/방법</td><td>반품을 하고 싶은데 어떻게 해야하나요?</td></tr>
+        <tr><td class="category">취소/방법</td><td>주문을 취소하고 싶은데 배송이 시작되면 어떻게 취소를 해야하나요?</td></tr>
+        <tr><td class="category">반품/환불</td><td>반품을 했는데 금액은 언제 입금되나요?</td></tr>
+        <tr><td class="category">배송지변경</td><td>주문을 했는데 배송지를 변경하고 싶어요.</td></tr>
+        <tr><td class="category">교환/방법</td><td>배송을 받았는데 상품을 교환하고싶어요.</td></tr>
+        <tr><td class="category">교환/방법</td><td>교환(환불)이 어려운 경우가 있을까요?</td></tr>
+      </table>
+
+      <div class="footer-msg">
+        찾으시는 내용이 없으면 1:1 문의를 이용하세요.<br>
+        <div class="btn-bottom-inquiry">1:1 문의하기</div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

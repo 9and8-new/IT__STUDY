@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // Number(숫자형)
+        console.log(typeof 10);
+        console.log(typeof 10.5)
+
+        // String(문자열)
+        console.log(typeof "hellowworld")
+        console.log(typeof 'hellowworld')
+        // 문자열은 ""도 되고 ''도 된다.
+        console.log(typeof `hellowworld`)
+        // 1번 왼쪽위치한`` 이것도 문자열로 본다
+
+
+        // Object : {key : value, key : value}
+        // {"name" : "홍길동", "age" : "30", "addr" : "대구"}
+        console.log(typeof {})
+        console.log(typeof {"name" : "홍길동", "age" : "30", "addr" : "대구"})
+
+
+
+        // Null(없음) 중요함 // 변수 초기화(공간형성 + 기본값 삽입-개발자가 의도한 값 Null)
+        // 공간을 만들어두고 값을 넣지않은것을 의미할때. 빈공간뜻
+        console.log("-------------")
+        let vol = null;  //null이라는 빈값을 vol이라는 변수에 넣음/ 비어있지만 값은 있어서 object
+        console.log(vol)
+        console.log("-------------")
+        
+
+        // undefined 중요함  //공간형성o,x but 기본값은 생략 - 개발자가 의도하지 못한 예외)
+        // // 공간을 만들지 않은것. 개발자가 의도하지 않은 공간
+        let vol2; 
+        console.log(vol2) // 아무것도 안했을시, vol2을 만들지 않아서 오류발생. 오류가 발생하면 이밑에 코드 전부다 작동X
+        // let vol2;를 해도 값을 안넣었기 때문에 undefined가 발생 / 작업실수
+
+
+        // boolean(참/거짓)
+    </script>
+
+
+
+</body>
+</html>

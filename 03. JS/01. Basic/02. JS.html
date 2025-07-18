@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        document.write("<h1>HELLOWORLD</h1>")
+        // 문서 내에 문자를 삽입
+        // document는 브라우저가 로드한 HTML 문서 전체를 표현하는 객체입니다.
+        // window.document라고 해도 되고, 그냥 document라고 써도 됩니다. DOM(Document Object Model)의 시작점이자, 웹 페이지 내용을 제어하는 핵심입니다.
+
+        document.write("<h2>HELLOWORLD</h2>")
+
+        document.write("<h3>HELLOWORLD</h3>")
+    </script>
+    <button onclick="document.write('<h3>ABCD</h3>')">ADD</button>
+    <!-- ""가 중복해서 들어가면 오류가 생긴다. ''로 문자열 인증해야함.
+         ADD버튼을 누르면 그전 문자를 다 제거하고 새로운 페이지로 이동한다. -->
+
+
+
+</body>
+</html>

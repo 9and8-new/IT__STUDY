@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <button onclick="alert('HELLOWORLD')">BTN1</button> 
+    <!-- alert = 경고창 띄우기 -->
+    <button onclick="alert(10+20)">BTN2</button>
+    <!-- 연산도 가능. ()안에 들어간 모든건 data임 -->
+    <button onclick="alert('HELLOWORD \n HELLOWORD \n HELLOWORD ')">BTN3</button>
+    <!-- \n은 엔터키 치는 효과와 같음 -->
+
+    <hr/>
+
+    <a href="javascript:alert('HELLOWORLD')">BTN1</a> <br/>
+    <!-- a href는 이벤트속성이 아니라 alert를 가져오면 안된다.
+         그냥 alert가 아니라 "javascript:alert('HELLOWORLD')"를 넣어서 JS로 사용한다고 표시해야함 -->
+    <a href="javascript:alert('10+20')">BTN2</a> <br/>
+    <a href="javascript:console.log(obj)">BTN3</a> <br/>
+    <!-- 콘솔로그 에서 btn3을 누르면 콘솔을 표시함 -->
+
+    <script>
+        const obj = {"name" : "홍길동", "age" : "30", "addr" : "대구"};
+        // JS에서 {}는 object(객체)를 담는 용도로 사용한다.
+        // data:data,data:data 이것을 JS에서 JSON이라 칭함.
+    </script>
+
+</body>
+</html>

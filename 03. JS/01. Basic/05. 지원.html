@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+     <script>
+        const btnEl = document.querySelector('.btn');
+        // btnEl.addEventListener('이벤트종류','수행로직');
+        // 콜백함수 : 수행로직을 전달 받는 함수
+        let state = false;
+        btnEl.addEventListener('click',()=>{
+            // alert('클릭됨');
+
+            if(state) {
+            btnEl.style.backgroundColor='white';
+            // css에서는 - 기호를 쓰지만 JS에서는 - 기호 대신 카멜 표기법 사용
+            btnEl.style.color='black';
+            state=false;
+        }
+            else{
+                btnEl.style.backgroundColor='black';
+                btnEl.style.color='white';
+                state = true;
+        }
+        })
+    </script>
+
+</body>
+</html>
