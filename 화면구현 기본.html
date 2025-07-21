@@ -63,7 +63,7 @@
       font-size: 13px;
       padding: 6px 10px;
       margin-bottom: 30px;
-      /* cursor: pointer; */
+      cursor: pointer;
     }
 
     .sidebar-section {
@@ -81,15 +81,11 @@
     }
     /* .siderbar-section h3 > (나의쇼핑정보, MyPage, 고객센터, INFO) */
     .sidebar-section li {
-      font-size: 15px;
+      font-size: 18px;
       margin-bottom: 15px;
-      margin: 10px;
-      border-bottom: 1px solid #dddddd60;
-      /* 바텀에 보더줘서 밑줄느낌으로 눈에 잘보이게 */
-
-      padding: 10px 10px;
-       /* 둘다 넣어서 글이 잘보이도록 함.*/
-      /* cursor: pointer; */
+      padding: 0 10px  ; /* 둘다 넣어서 글이 잘보이도록 함.*/
+      cursor: pointer;
+      border-bottom: 1px solid;
     }
 
     .btn-inquiry-start {
@@ -99,7 +95,7 @@
       padding: 6px 10px;
       border: 1px solid #000;
       background: #fff;
-      /* cursor: pointer; */
+      cursor: pointer;
     }
 
     /* --- 컨텐츠 --- */
@@ -117,7 +113,7 @@
     .top-box {
       flex: 1;
       background: #e7e0da;
-      text-align: right; 
+      /* text-align: center;  */
       padding: 20px 10px;
 
     }
@@ -145,11 +141,10 @@
       margin-bottom: 20px;
     }
 
-      /* FQA li */
     .faq-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 18px;
+      font-size: 20px;
       
     }
 
@@ -182,7 +177,7 @@
       color: #fff;
       padding: 10px 20px;
       display: inline-block;
-      /* cursor: pointer; */
+      cursor: pointer;
     }
   </style>
 </head>
@@ -190,7 +185,7 @@
   <div class="container">
     <aside class="sidebar">
       <h2>최 * 호</h2>
-      <div class="btn-inquiry-list"><a href="coupon.html">1:1 문의내역</a></div>
+      <div class="btn-inquiry-list">1:1 문의내역</div>
 
       <div class="sidebar-section">
         <h3>나의 쇼핑정보</h3>
@@ -226,26 +221,22 @@
         </ul>
       </div>
 
-      <div class="btn-inquiry-start"><a href="coupon.html">1:1 문의 시작하기 &gt;</a></div>
+      <div class="btn-inquiry-start">1:1 문의 시작하기 &gt;</div>
     </aside>
 
     <section class="content">
       <div class="top-boxes">
         <div class="top-box">
-          <div class="title"><a href="coupon.html">Newbie</a></div>
-          <div class="number"><a href="coupon.html">-</a></div>
+          <div class="title">Newbie</div>
+          <div class="number">-</div>
         </div>
         <div class="top-box">
-       
-          <!-- a태그로 페이지이동 가능  -->
-          <div class="title"> <a href="coupon.html">나의 쿠폰</a> </div>
-          <div class="number"> <a href="coupon.html">2</a> </div>
-           <!-- <div class="emoji">더보기</div> -->
-         
+          <div class="title">나의 쿠폰</div>
+          <div class="number">2</div>
         </div>
         <div class="top-box">
-          <div class="title"><a href="coupon.html">상품 리뷰</a></div>
-          <div class="number"><a href="coupon.html">10</a></div>
+          <div class="title">상품 리뷰</div>
+          <div class="number">10</div>
         </div>
       </div>
 
