@@ -1,0 +1,162 @@
+.container {
+    display: flex;
+    width: 1664px;
+    min-height: 1726px;
+    margin: 0 auto;
+    border: 1px solid #000;
+}
+
+/* --- 사이드바 --- */
+.sidebar {
+    width: 240px;
+    border-right: 1px solid #000;
+    padding: 30px 20px;
+    background: #fff;
+}
+
+.sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.btn-inquiry-list {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    font-size: 13px;
+    padding: 6px 10px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.sidebar-section {
+    margin-bottom: 30px;
+}
+
+/* 나의쇼핑정보, MyPage, 고객센터, INFO */
+.sidebar-section h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.sidebar-section ul {
+    list-style: none;
+}
+
+/* .siderbar-section h3 > (나의쇼핑정보, MyPage, 고객센터, INFO) */
+.sidebar-section>ul>li {
+    font-size: 18px;
+    padding: 5px 5px;
+    /* 둘다 넣어서 글이 잘보이도록 함.*/
+}
+
+.sidebar-section>ul>li:first-child::before {
+    /* li의 첫번째 brfore 값은 지운다 */
+    display: none;
+}
+
+.sidebar-section>ul>li::before {
+    /* li 후에 값을 넣는다 */
+    display: flex;
+    content: "";
+    margin-bottom: 5px;
+    /* 주는 이유 : siderbar-sction>ul>li 에서 padding: 5px (상하 5px = 10px) 때문에 중간인 5px 값을 줌 */
+    width: 100%;
+    height: 1px;
+    background-color: lightgray;
+}
+
+.btn-inquiry-start {
+    margin-top: 20px;
+    display: inline-block;
+    font-size: 13px;
+    padding: 6px 10px;
+    border: 1px solid #000;
+    background: #fff;
+    cursor: pointer;
+}
+
+/* --- 컨텐츠 --- */
+.content {
+    flex: 1;
+    padding: 40px;
+}
+
+/* 베이지색 top 전체박스*/
+.top-boxes {
+    display: flex;
+    gap: 1px;
+    margin-bottom: 30px;
+}
+
+/* Newbie, 나의쿠폰, 상품 리뷰 */
+.top-box {
+    flex: 1;
+    background: #e7e0da;
+    text-align: right;
+    padding: 20px 10px;
+
+}
+
+/* 베이지색 top박스*/
+.top-box .title {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+/* -, 2, 10 */
+.top-box .number {
+    font-size: 28px;
+    font-weight: bold;
+    /* display: flex; */
+    /* justify-content: space-between; */
+}
+
+.npay {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.notice {
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.faq-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 20px;
+
+}
+
+.faq-table tr {
+    border-bottom: 1px solid #ddd;
+
+}
+
+.faq-table td {
+    padding: 30px 8px;
+    /* gap: 10px; */
+}
+
+.faq-table td.category {
+    width: 100px;
+    color: #888;
+}
+
+.footer-msg {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.btn-bottom-inquiry {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #000;
+    color: #fff;
+    padding: 10px 20px;
+    display: inline-block;
+    cursor: pointer;
+}
