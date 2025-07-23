@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // *** 많이 사용되서 중요함 ***
+
+        // 콜백함수(CALL BACK)
+        // 함수를 호출하는 시점이 바뀌어진 형태의 함수
+        // 기존방식 : 사용자(개발자)가 함수를 직접정의 -> 정의된 함수를 호출(CALL)하여 결과를 반환받는 방식
+        // CALLBACK : 콜백함수에 인자로 로직이 담긴 함수를(함수주소) 전달하여 콜백함수로부터 처리된 결과를
+        // 반환받는 방식
+
+        // // 일반함수
+        // function func(n1, n2){
+        //     console.log("func(n1,n2)...call!");
+        //     return n1 + n2
+        // }
+        // const v1 = func(10,20); // call-by-value // 값(value)전달을 통한 함수 직접 실행(call)
+        // console.log("v1",v1);
+
+        // // 콜백함수
+        // function callBackFunc(n1,n2,logic){ // 로직에는 데이터 주소정보가 들어감??
+        //     console.log('callBackFunc....start...');
+        //     const v = logic(n1,n2);
+        //     console.log("v",v);
+        //     console.log('callBackFunc....start...');
+        // }
+
+        // callBackFunc(100,200,func);
+        // console.log("---------------------")
+        // callBackFunc(100,200,(a,b)=>{return a*b;});
+        // console.log("---------------------")
+        // callBackFunc(100,200,(...args)=>{return 111;}); //자바에선 오류, 스크립트에선 넘어가지만 비추
+
+        // Callback 함수로 Map 만들기
+        const arr = [
+            {"id":"111","name":"짱구", age:5,"addr":"대구"},
+            {"id":"222","name":"철수", age:6,"addr":"부산"},
+            {"id":"333","name":"수지", age:4,"addr":"서울"},
+            {"id":"444","name":"맹구", age:3,"addr":"울산"},
+            {"id":"555","name":"유리", age:7,"addr":"대전"}
+        ]
+        function customMap(array,func)
+        {   
+            //array == arr
+            //fun = (item)=>{return {"id":item.id,"name":item.name}}
+            let newArray = []
+            for(let i=0;i<array.length;i++)
+            {
+                const item = array[i]; // 0 index {}, 1 index {}, 2 index {}... n번째 인덱스의 item{}을 불러옴
+                const newItem = func(item);
+                newArray.push(newItem);
+            }
+
+            return newArray;
+        }
+        // customMap(저장된배열, 처리할로직) 으로 사용
+        const arr02 = customMap(arr,(item)=>{return {"id":item.id,"name":item.name}})
+        console.log(arr02);
+
+        // Clousure + Callback
+        function customMap2(array,func)
+        {   
+ 
+            let newArray = [] // state
+
+            //inner Function
+            function map(func) {
+                for(let i=0;i<array.length;i++)
+                {
+                const item = array[i]; // 0 index {}, 1 index {}, 2 index {}... n번째 인덱스의 item{}을 불러옴
+                const newItem = func(item);
+                newArray.push(newItem);
+                }
+                return newArray;
+
+            }
+            return{"map":map};
+        }
+        const arr03 = 
+        customMap2(arr).map( (item)=>{return {"name":item.name,"age":item.age}});
+
+        console.log(arr03)
+        // console.log(customMap2(arr));
+
+    </script>
+
+
+
+
+</body>
+</html>
