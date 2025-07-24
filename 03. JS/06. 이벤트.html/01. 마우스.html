@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{width:300px;height:200px;border:1px solid;}
+        div.d4{
+            width:500px;
+            height:400px;
+            border : 5px dashed gray;
+            color : gray;
+            position : relative;
+
+        }
+        div.d4::after{
+            content:'+';
+            position : absolute;
+            left:0;right: 0;top: -110px;bottom: 0;
+            margin : auto;
+            width: 20px;
+            height:20px;
+            font-size:5rem;
+            font-weight: 600;
+        }
+        .preview{
+            width:150px;
+            min-height : 400px;
+            border : 1px solid;
+            position: absolute;
+            left: 530px;
+            bottom: 200px;
+            overflow-y: auto;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .preview>img{
+            width:100%;
+            height: 100px;
+            object-fit: cover; /* 이미지나 영상 같은 미디어 요소를 "박스 안에 꽉 채우게" 보여주는 CSS 속성*/
+        }
+    </style>
+
+
+</head>
+<body>
+    
+    <div class="d1"></div>
+    <hr/>
+    <div class="d2"></div>
+    <hr/>
+    <div class="d3"></div>
+    <hr/>
+    <div class="d4"></div>
+    <hr/>
+    <div class="preview"></div>
+    <hr/>
+
+    <script>
+        //클릭이벤트
+        var cnt=0;
+        const d1El = document.querySelector('.d1');
+        d1El.addEventListener("click",(e)=>{
+            console.log("clicked...",e.target); // e.target하면 d1태그로 타겟이 생성됨
+            d1El.innerHTML=`<h1>${++cnt}</h1>`; // 보간법을 사용해서 count값을 증가시킴.
+        });
+
+
+
+        // 클릭이벤트 + 클로저 상태관리
+        function clickHandler(){ // clickHandler = 처리기능
+            //상태
+            let cnt=0;
+            function addCnt(node){
+                cnt++; // 카운트 증가를 만듬.
+                console.log("addCnt...",cnt);
+                node.innerHTML=`<h1>${cnt}</h1>`;
+            }
+
+            return addCnt;
+        } 
+
+        const addCnt = clickHandler();
+        const d2El = document.querySelector('.d2');
+        d2El.addEventListener("click",(e)=>{
+            console.log("clicked...",e.target); // e.target하면 d1태그로 타겟이 생성됨
+            addCnt(d2El);// d1El.innerHTML=`<h1>${++cnt}</h1>`; // 보간법을 사용해서 count값을 증가시킴.
+        });
+
+        /*
+            mouseenter : 마우스 포인터가 특정영역내로 진입시
+            mouseover  : 마우스 포인터가 특정영역내에 머무를시
+            mouseleave : 마우스 포인터가 특정영역밖으로 나갈때
+            click      : 마우스 1회 클릭
+            dblclick    : 마우스 2회 클릭
+            contextmenu: 마우스 우클릭
+
+        */
+       const d3El = document.querySelector('.d3');  // 이벤트처리의 패턴
+    //    d3El.addEventListener('mouseenter',()=>{d3El.innerHTML=`<h1>MOUSEENTER</h1>`});             // 이벤트처리의 패턴 마우스엔터는 마우스가 들어가는 그떄를 말함?
+       d3El.addEventListener('mouseleave',()=>{d3El.innerHTML=`<h1>MOUSELEAVE</h1>`});             // 이벤트처리의 패턴
+       d3El.addEventListener('mouseover',()=>
+       {console.log('mouseover....');
+        d3El.innerHTML=`<h1>MOUSEOVER</h1>`});  // 마우스엔터가 먼저 처리되서 작동안됨.      
+        
+       d3El.addEventListener('dblclick',()=>{d3El.innerHTML=`<h1>MOUSEDBLCLICK</h1>`});             // 이벤트처리의 패턴
+       d3El.addEventListener('contextmenu',(e)=>{
+            e.preventDefault(); //마우스우클릭 기본동작 막는법
+            d3El.innerHTML=`<h1>MOUSE우클릭</h1>`
+        
+        });             
+        document.addEventListener('contextmenu',(e)=>{e.preventDefault();}) // 보안기능은아님. 뚫을 수 있음
+
+        /*
+            dragstart   : 드래그 시작(마우스를 끌어당길때의 시작점)
+            drag        : 드래그 중
+            dragenter   : 드래그가 대상 영역 위로 이동시(요소가 드랍의 대상이 될때)
+            dragover    : 드래그가 대상 영역 위에 있는 동안(요소가 드랍의 대상이 될때)
+            dragleave   : 드래그가 대상 영역에서 벗어날때(요소가 드랍의 대상이 될때)
+            dragend     : 드래그 종료
+            drop        : 드랍(끌어온 마우스의 왼쪽PUSH상태 -> 손을 땐 경우)
+        
+        */
+        const d4El = document.querySelector('.d4');
+        d4El.addEventListener('dragenter',(e)=>{
+            e.preventDefault(); // 기본기능막기
+            console.log('dragenter...',); // 이벤트 객체 확인도 가능하다.
+        });
+        d4El.addEventListener('dragover',(e)=>{
+            
+            e.preventDefault();
+            console.log('dragover...');
+            d4El.style.border="5px dashed lightgray";
+            d4El.style.color="lightgray";
+        });
+        d4El.addEventListener('dragleave',(e)=>{
+            e.preventDefault();
+            d4El.style.border = "5px dashed gray";
+            d4El.style.color = "gray";});
+
+        d4El.addEventListener('dragend',(e)=>{
+            e.preventDefault();
+            d4El.style.border="5px dashed gray";
+            d4El.style.color="gray";
+        
+        });
+
+        // 유효성 검사 함수(유효성체크)
+        function isValid(file){
+            //type이 image/* 인지 
+            
+            if(!file.type.startsWith("image/")) {
+                alert("이미지 파일만 업로드 가능합니다.")
+                return false;
+                //파일타입시작에 image/가 포함되어있지 않는다면 alert로 경고문rn 재생
+            } 
+            //file size
+            const maxSize=10;
+            if(file.size >= (1024*1024*maxSize)){
+                alert("최대 허용 파일 크기는 1MB입니다.")
+                return false;
+            }
+            //true/false 
+            // 파일을 확인하는데 정책과 맞지않으면 false, 맞으면 true반환
+            return true;
+        }
+
+        d4El.addEventListener('drop',(e)=>{
+            e.preventDefault();
+            d4El.style.border = "5px dashed gray"
+            d4El.style.color = "gray";
+            // console.log('drop',e);
+            // console.log('drop',e.target);
+            // console.log('drop',e.dataTransfer);
+            // console.log('drop',e.dataTransfer.files); // 몇개의 파일인지 확인
+            // console.log('drop',e.dataTransfer.files[0]); // 인덱스 번호의 파일 정보
+            const files = e.dataTransfer.files;
+            console.log(files);
+
+            for(let i=0;i<files.length;i++){
+                const file = files[i];
+                //유효성 검증
+                if(!isValid(file)){//isValid = 파일정보 전달
+                    return ; // return을 만나면 밑에코드 실행안되고 바로 벗어남
+                } 
+            
+            //이미지만 있는경우 PREVIEW / 기타 문서파일 있으면 유효성체크에서 걸리도록  
+            const previewEl = document.querySelector('.preview');
+            const newImageEl = document.createElement('img'); // img태그생성
+            newImageEl.src=URL.createObjectURL(file); // 이미지를 문자열로 풀어서 작업하는
+            previewEl.appendChild(newImageEl);
+            }
+        });
+    
+    </script>
+
+
+</body>
+</html>

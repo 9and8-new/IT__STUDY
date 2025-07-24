@@ -1,0 +1,15 @@
+body{margin: 0;padding: 0;}
+*{box-sizing: border-box;} 
+/* 나간 요소 찾기 ↓ */
+/* *{outline: 1px solid red;} */
+ul{list-style: none;margin: 0;padding: 0;}
+a{text-decoration:none; color:black}
+button{background: none;border: none;}
+.wrapper{
+    display:flex;
+    flex-direction: column;
+}
+main{max-width:1920px;}
+.main-contents{
+    width: 100%;
+}
