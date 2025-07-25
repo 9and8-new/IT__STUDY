@@ -50,15 +50,15 @@
 </head>
 <body>
     
-    <div class="d1"></div>
+    <div class="d1"></div> <!-- 클릭 카운트 증가-->
     <hr/>
-    <div class="d2"></div>
+    <div class="d2"></div> <!-- 클로저 상태 유지하며 카운트 증가-->
     <hr/>
-    <div class="d3"></div>
+    <div class="d3"></div> <!--마우스 이벤트 테스트--> 
     <hr/>
-    <div class="d4"></div>
+    <div class="d4"></div> <!--드래그 & 드랍 이미지 업로드-->
     <hr/>
-    <div class="preview"></div>
+    <div class="preview"></div> <!--업로드한 이미지 보여주기-->
     <hr/>
 
     <script>
@@ -66,8 +66,8 @@
         var cnt=0;
         const d1El = document.querySelector('.d1');
         d1El.addEventListener("click",(e)=>{
-            console.log("clicked...",e.target); // e.target하면 d1태그로 타겟이 생성됨
-            d1El.innerHTML=`<h1>${++cnt}</h1>`; // 보간법을 사용해서 count값을 증가시킴.
+            console.log("clicked...",e.target); // 클릭한 대상 로그찍기 /e.target하면 d1태그로 타겟이 생성됨
+            d1El.innerHTML=`<h1>${++cnt}</h1>`; // 보간법을 사용해서 cnt값을 증가시킴.
         });
 
 

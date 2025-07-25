@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    KEYUP : <input id="input1"><br>
+    <p id="p1"></p>
+    <hr>
+    KEYDOWN : <input id="input2"><br>
+    <p id="p2"></p>
+    <hr>
+    KEYPRESS : <input id="input3"><br>
+    <p id="p3"></p>
+    <hr>
+
+
+    <script>
+        //KEYUP     : 키보드가 올라올때(대소문자 구별 X)(꾹눌러도 다시 키가 올라올때 1번만 적용됨)
+        const keyupEl = document.querySelector('#input1') // 
+        const p1El = document.querySelector('#p1')
+        keyupEl.addEventListener("keyup",(e)=>{ // 이벤트 발생
+            console.log("keyup...",e);
+            console.log("keyup...",e.key);
+            console.log("keyup...",e.keyCode);
+            //엔터키를 쳤을때 반응하도록(enter의 keycode = 13)
+            if(e.keyCode==13){
+                // input value의 값을 p1El안에 넣기 - !
+                const value = keyupEl.value; // 키보드에 입력된값에 이름 부여
+                p1El.innerHTML+=value+"<br/>"; // p1El에 value값 넣어주기 컨텐츠영역에 html도 포함된다
+                // p1El.innerHTML=p1El.innerHTML + value"<br/>"; // p1El에 value값 넣어주기 컨텐츠영역에 html도 포함된다
+                keyupEl.value = ""; // value값을 비워주는 역활
+            }
+        })
+        //KEYDOWN   : 키보드가 내려갈때(대소문자 구별 X),(꾹 누르면 연속적용)
+        const keydownEl = document.querySelector('#input2') // 
+        const p2El = document.querySelector('#p2')
+        keydownEl.addEventListener('keydown',(e)=>{
+            console.log('keydown..',e);
+
+        });
+        //KEYPRESS  : 키보드를 계속 누를때(제어문자[ex shift]인식하지 않는다, 영문소문자 구별 O)
+        const keypressEl = document.querySelector('#input3')
+        const p3El = document.querySelector('#p3')
+        keypressEl.addEventListener('keypress',(e)=>{
+            console.log('keypress..',e);
+        })
+
+    </script>
+
+
+
+
+</body>
+</html>
