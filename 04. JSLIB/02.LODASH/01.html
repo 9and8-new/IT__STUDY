@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- LODASH CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body style="height: 8000px; margin: 0;">
+    <!-- 스크롤바 감지하는 감도를 떨어트리는것 -->
+    <script>
+
+        
+        // 스크롤 이벤트를 감지하는 함수
+        console.log("_",_);
+        // window.addEventListener('scroll',(e)=>{  
+        //     console.log(window.scrollY);
+        // })
+
+        // lodash의 throttle을 사용하여 스크롤 이벤트를 감지하는 함수
+        // throttle은 지정된 시간동안 이벤트를 제한하여 성능을 향상시키는 함수입니다.
+        // _.throttle(func, wait, options)
+        // 스크롤 이벤트가 발생했을때 throttle을 적용하여 감지하는 함수
+        window.addEventListener('scroll', _.throttle(()=>{
+            console.log(window.scrollY)
+            },100))
+    </script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

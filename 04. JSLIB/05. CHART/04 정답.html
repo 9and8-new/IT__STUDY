@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     <!-- CHART.JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="./JS/경찰정지역별범죄발생건수.js"></script>
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+
+    <div style="width :800px; height: 500px;">
+        <canvas id="myChart"></canvas>
+    </div>
+    
+    <script>
+        // console.log(지역별범죄건수);
+
+        // 배열오브젝트라 벨류를 추출해서 새로운 배열로 재구성가능
+
+        // item당 범죄대분류,범죄소분류를 제외한 값을 filter
+        // 범죄대분류 : [서울:50,부산:21...]
+        
+            const result = 지역별범죄건수.reduce((resultObject,item)=>{ // 각 아이템을 순회합니다.
+            // item에서 범죄대분류,범죄소분류를 제외한 나머지 속성들을 추출합니다.
+            
+            const {범죄대분류,범죄중분류,...rest} = item; // 나머지 속성들을 rest로 묶습니다. 키값을 변수형태로 뽑고
+            const values = Object.values(rest); // 나머지 속성들의 값을 배열로 변환합니다.
+            const item_sum = values.reduce((sum,count)=>{return sum+count;},0); // 나머지 속성들의 값을 합산합니다.    
+            // console.log(범죄대분류,values); // 오브젝트로 뽑아서 처리됨
+            // return {범죄대분류,values} // 범죄대분류와 나머지 속성들을 오브젝트로 묶어서 반환합니다.
+            if(resultObject[범죄대분류]!==undefined){
+                resultObject[범죄대분류] += item_sum;
+            }else{
+                //처음누적
+                resultObject[범죄대분류] = item_sum; // 범죄대분류를 키로 사용하고, 나머지 속성들의 합을 값으로 사용합니다.
+            }
+            return resultObject;
+        },{})
+        console.log(result);
+        
+    </script>
+     <script>
+        const ctx = document.getElementById('myChart');
+
+        const dataSet = [ // 데이터셋을 정의합니다. 각 객체는 데이터셋의 속성을 정의합니다.
+            {
+                label: 'yellow',
+                data: [12, 0, 0, 0, 0, 0],
+                borderWidth: 1,
+                backgroundColor: 'red',
+                borderColor: '',
+            },
+            {
+                label: 'red',
+                data: [0, 22, 0, 0, 0, 0],
+                borderWidth: 1,
+                backgroundColor: 'orange',
+                borderColor: '',
+            },
+            {
+                label: 'green',
+                data: [0, 0, 30, 0, 0, 0],
+                borderWidth: 1,
+                backgroundColor: 'pink',
+                borderColor: '',
+            },
+            {
+                label: 'blue',
+                data: [0, 0, 0, 2, 0, 0],
+                borderWidth: 1,
+                backgroundColor: 'tomato',
+                borderColor: '',
+            },
+            {
+                label: 'pink',
+                data: [0, 0, 0, 0, 18, 0],
+                borderWidth: 1,
+                backgroundColor: 'yellow',
+                borderColor: '',
+            },
+            {
+                label: 'purple',
+                data: [0, 0, 0, 0, 0, 5],
+                borderWidth: 1,
+                backgroundColor: 'green',
+                borderColor: '',
+                // barThickness: 50, // 막대의 두께를 설정합니다.
+                // barPerentage:12, // 막대의 너비를 설정합니다. 0.5는 50% 너비를 의미합니다.
+            }]
+        const option = {
+            // line에 적용
+            // animation:{
+            //     tension:{ // 애니메이션 옵션을 정의합니다. tension은 선형 차트의 텐션을 설정합니다.
+            //         duration:1000, // 애니메이션 지속시간을 설정합니다.
+            //         easing : 'linear', // 애니메이션의 이징 함수를 설정합니다. 'linear'는 선형 이징을 의미합니다.
+            //         to : 0, // 애니메이션이 끝날 때의 값입니다.
+            //         loop : true, // 애니메이션을 반복합니다.
+            //     }
+            // },
+
+            //bar에 적용
+            animation: {
+                delay: (el) => { return el.dataIndex * 100; }
+            },
+            scales: { // 옵션을 정의합니다. 차트의 동작 방식을 설정합니다.
+                x: {
+                    stacked: true, // x축의 스택을 활성화합니다. 여러 데이터셋이 겹쳐서 표시됩니다.
+                    // barPercentage:.1,
+                },
+                y: {
+                    beginAtZero: true, // y축의 시작점을 0으로 설정합니다.
+                    // max:100,
+                    // min:0,
+                    // ticks:{
+                    //     stepSize: 10, // y축의 눈금 간격을 설정합니다. 
+                    // 10으로 설정하면 10 단위로 눈금이 표시됩니다.
+                }
+            },
+            // 클릭이벤트 등록
+            onClick: (event, chartEl) => {
+                // console.log(event);
+                console.log(chartEl);
+            }
+        }
+        // 옵션을 정의합니다. 차트의 동작 방식을 설정합니다.
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: Object.keys(result),// 카테고리별 맛집 count를 키로 사용합니다.
+                datasets: [{ // 데이터셋을 정의합니다.
+                    label: '# of Votes',// 카테고리별 맛집 count를 데이터로 사용합니다.
+                    data: Object.values(result), // 카테고리별 맛집 count를 데이터로 사용합니다.
+                    borderWidth: 1 // 테두리 두께를 설정합니다.
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+
+
+
+</body>
+</html>

@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- swiper 주소 -->
-    <!-- https://swiperjs.com/ -->
+
 
     <!-- GOOGLE ICON -->
     <link rel="stylesheet"
@@ -18,11 +17,11 @@
                 'wght' 400,
                 'GRAD' 0,
                 'opsz' 48;
-            
-           font-size: 2.5rem;
-           border: 3px solid;
-           border-radius: 50%;
-            }
+
+            font-size: 2.5rem;
+            border: 3px solid;
+            border-radius: 50%;
+        }
     </style>
 
 
@@ -31,7 +30,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-
+    <!-- 한페이지에 swiper가 여러개 있으면 확실하게 구분 지어줘야함 -->
 
     <style>
         * {}
@@ -43,7 +42,25 @@
 
         .wrapper {}
 
-        .wrapper>header {}
+        .wrapper>header {
+            height: 80px;
+            background-color: white;
+        }
+
+        .wrapper>header>.top-header {
+            height: 30px;
+        }
+
+        .wrapper>header>.top-header>.swiper {
+            height: 100%;
+            background-color: palegreen;
+        }
+
+        .wrapper>header>.top-header>.swiper>.swiper-wrapper {}
+
+        .wrapper>header>.top-header>.swiper>.swiper-wrapper>.swiper-slide {}
+
+        .wrapper>header>.top-header>.swiper>.swiper-wrapper>.swiper-slide>a {}
 
         .wrapper>main {}
 
@@ -64,21 +81,21 @@
         }
 
         /* 불릿 style */
-        .swiper-pagination-bullet {
+        .wrapper>main>section.banner>.swiper .swiper-pagination-bullet {
             width: 10px;
             height: 10px;
             border-radius: 0;
             transition: 0.3;
         }
 
-        .swiper-pagination-bullet-active {
+        .wrapper>main>section.banner>.swiper .swiper-pagination-bullet-active {
             width: 25px;
             height: 25px;
             background-color: palegreen;
         }
 
         /* fraction style */
-        .swiper-pagination {
+        .wrapper>main>section.banner>.swiper .swiper-pagination {
             color: white;
             font-size: 1.3rem;
             position: absolute;
@@ -88,14 +105,14 @@
             letter-spacing: 3px;
         }
 
-        .swiper-pagination-current {
+        .wrapper>main>section.banner>.swiper .swiper-pagination-current {
             color: royalblue;
         }
 
-        .swiper-pagination-total {}
+        .wrapper>main>section.banner>.swiper .swiper-pagination-total {}
 
-        .swiper-button-next,
-        .swiper-button-prev {
+        .wrapper>main>section.banner>.swiper .swiper-button-next,
+        .wrapper>main>section.banner>.swiper .swiper-button-prev {
             width: 50px;
             height: 50px;
             /* border : 1px solid white; */
@@ -105,29 +122,30 @@
 
         }
 
-        .swiper-button-next {
+        .wrapper>main>section.banner>.swiper .swiper-button-next {
             left: calc(15.625vw + 180px);
         }
 
-        .swiper-button-prev {
+        .wrapper>main>section.banner>.swiper .swiper-button-prev {
             left: calc(15.625vw + 70px);
         }
 
-        .swiper-button-next::after,
-        .swiper-button-prev::after {
+        .wrapper>main>section.banner>.swiper .swiper-button-next::after,
+        .wrapper>main>section.banner>.swiper .swiper-button-prev::after {
             font-size: 1.3rem;
             font-weight: 800;
             color: white;
         }
+
         /* 재생표시 스타일 */
-        .start-stop-toggle{
-            position:absolute;
-            top:79%;
+        .wrapper>main>section.banner>.swiper .start-stop-toggle {
+            position: absolute;
+            top: 79%;
             left: calc(15.625vw + 10px);
             z-index: 100;
             color: white;
             cursor: pointer;
-            
+
 
         }
 
@@ -142,7 +160,21 @@
 <body>
     <!-- 광고 부분에 많이 사용됨. -->
     <div class="wrapper">
-        <header></header>
+        <header>
+            <div class="top-header"><!-- Slider main container -->
+                <div class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide"><a href="javascript:void(0)">[공지] 오늘 출근입니다</a></div>
+                        <div class="swiper-slide"><a href="javascript:void(0)">[공지] 오늘 야근입니다</a></div>
+                        <div class="swiper-slide"><a href="javascript:void(0)">[공지] 오늘 특근입니다</a></div>
+                        <div class="swiper-slide"><a href="javascript:void(0)">[공지] 오늘 퇴근없습니다</a></div>
+                    </div>
+                </div>
+            </div>
+            <nav></nav>
+        </header>
         <main>
             <section class="banner">
                 <!-- Slider main container -->
@@ -196,7 +228,7 @@
                             play_arrow
                         </span>
                     </div>
-                
+
                     <!-- If we need scrollbar -->
                     <!-- <div class="swiper-scrollbar"></div> -->
                 </div>
@@ -239,17 +271,29 @@
         //토글버튼 만들기
         const playPauseBtn = document.querySelector('.start-stop-toggle span');
         let isPlaying = true;
-        playPauseBtn.addEventListener('click',()=>{
-            if(isPlaying){
-                playPauseBtn.innerHTML='pause';
+        playPauseBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                playPauseBtn.innerHTML = 'pause';
                 swiperBanner.autoplay.stop();
                 isPlaying = false;
-            }else{
-                playPauseBtn.innerHTML='play_arrow';
+            } else {
+                playPauseBtn.innerHTML = 'play_arrow';
                 swiperBanner.autoplay.start();
                 isPlaying = true;
             }
         })
+
+        // Initialize Swiper퍼옴
+        // 공지사항 swiper
+        const noticeSwiper = new Swiper('.top-header .swiper', {
+            // Optional parameters
+            direction: 'vertical',
+            autoplay : {
+                delay:2000,
+            },
+            loop: true,
+            mousewheel:true,
+        });
 
     </script>
 

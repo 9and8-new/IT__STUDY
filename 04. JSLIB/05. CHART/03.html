@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- CHART.JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="./JS/중구맛집.js"></script>
+</head>
+
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+
+    <div style="width :800px; height: 500px;">
+        <canvas id="myChart"></canvas>
+    </div>
+    <script>
+        //
+        console.log("ALL DATA", 중구맛집);
+        //
+        const datas = 중구맛집.data;
+        console.log("datas", datas)
+
+
+        // 카테고리별 맛집 count
+        const cat_count = datas.map((item) => { return item.FD_CS }) //['한식','일식','중식','양식','한식','일식',...]
+            .reduce((cat, item) => { // cat[key] => value
+                if (cat[item] !== undefined) // item이 이미 존재하는 키라면
+                    // cat[item]의 값을 1 증가시킵니다.
+                    cat[item]++; // {한식:100, 일식:55} 이런식으로 카테고리별 맛집 count를 구하기 위한 reduce 함수
+                // item이 존재하지 않는 키라면
+                else
+                    cat[item] = 1;
+                return cat;
+            }) // {한식:100},일식:55} 이런식으로 키와벨류로/카테고리별 맛집 count를 구하기 위한 reduce 함수 
+
+        console.log(cat_count);
+    </script>
+    <!-- Chartjs -->
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        const dataSet = [ // 데이터셋을 정의합니다. 각 객체는 데이터셋의 속성을 정의합니다.
+            {
+                label: 'yellow',
+                data: [12, 0, 0, 0, 0, 0],
+                borderWidth: 1,
+                backgroundColor: 'red',
+                borderColor: '',
+            },
+            {
+                label: 'red',
+                data: [0, 22, 0, 0, 0, 0],
+                borderWidth: 1,
+                backgroundColor: 'orange',
+                borderColor: '',
+            },
+            {
+                label: 'green',
+                data: [0, 0, 30, 0, 0, 0],
+                borderWidth: 1,
+                backgroundColor: 'pink',
+                borderColor: '',
+            },
+            {
+                label: 'blue',
+                data: [0, 0, 0, 2, 0, 0],
+                borderWidth: 1,
+                backgroundColor: 'tomato',
+                borderColor: '',
+            },
+            {
+                label: 'pink',
+                data: [0, 0, 0, 0, 18, 0],
+                borderWidth: 1,
+                backgroundColor: 'yellow',
+                borderColor: '',
+            },
+            {
+                label: 'purple',
+                data: [0, 0, 0, 0, 0, 5],
+                borderWidth: 1,
+                backgroundColor: 'green',
+                borderColor: '',
+                // barThickness: 50, // 막대의 두께를 설정합니다.
+                // barPerentage:12, // 막대의 너비를 설정합니다. 0.5는 50% 너비를 의미합니다.
+            }]
+        const option = {
+            // line에 적용
+            // animation:{
+            //     tension:{ // 애니메이션 옵션을 정의합니다. tension은 선형 차트의 텐션을 설정합니다.
+            //         duration:1000, // 애니메이션 지속시간을 설정합니다.
+            //         easing : 'linear', // 애니메이션의 이징 함수를 설정합니다. 'linear'는 선형 이징을 의미합니다.
+            //         to : 0, // 애니메이션이 끝날 때의 값입니다.
+            //         loop : true, // 애니메이션을 반복합니다.
+            //     }
+            // },
+
+            //bar에 적용
+            animation: {
+                delay: (el) => { return el.dataIndex * 100; }
+            },
+            scales: { // 옵션을 정의합니다. 차트의 동작 방식을 설정합니다.
+                x: {
+                    stacked: true, // x축의 스택을 활성화합니다. 여러 데이터셋이 겹쳐서 표시됩니다.
+                    // barPercentage:.1,
+                },
+                y: {
+                    beginAtZero: true, // y축의 시작점을 0으로 설정합니다.
+                    // max:100,
+                    // min:0,
+                    // ticks:{
+                    //     stepSize: 10, // y축의 눈금 간격을 설정합니다. 
+                    // 10으로 설정하면 10 단위로 눈금이 표시됩니다.
+                }
+            },
+            // 클릭이벤트 등록
+            onClick: (event, chartEl) => {
+                // console.log(event);
+                console.log(chartEl);
+            }
+        }
+        // 옵션을 정의합니다. 차트의 동작 방식을 설정합니다.
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: Object.keys(cat_count),// 카테고리별 맛집 count를 키로 사용합니다.
+                datasets: [{ // 데이터셋을 정의합니다.
+                    label: '# of Votes',// 카테고리별 맛집 count를 데이터로 사용합니다.
+                    data: Object.values(cat_count), // 카테고리별 맛집 count를 데이터로 사용합니다.
+                    borderWidth: 1 // 테두리 두께를 설정합니다.
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

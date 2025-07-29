@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- CHART.JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</head>
+
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+
+    <div style="width :800px; height: 500px;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        const dataSet = [ // 데이터셋을 정의합니다. 각 객체는 데이터셋의 속성을 정의합니다.
+        { 
+            label:'yellow',
+            data:[12,0,0,0,0,0],
+            borderWidth:1,
+            backgroundColor:'red',
+            borderColor:'',
+        },
+        {
+            label:'red',
+            data:[0,22,0,0,0,0],
+            borderWidth:1,
+            backgroundColor:'orange',
+            borderColor:'',
+        },
+        {
+            label:'green',
+            data:[0,0,30,0,0,0],
+            borderWidth:1,
+            backgroundColor:'pink',
+            borderColor:'',
+        },
+        {
+            label:'blue',
+            data:[0,0,0,2,0,0],
+            borderWidth:1,
+            backgroundColor:'tomato',
+            borderColor:'',
+        },
+        {
+            label:'pink',
+            data:[0,0,0,0,18,0],
+            borderWidth:1,
+            backgroundColor:'yellow',
+            borderColor:'',
+        },
+        {
+            label:'purple',
+            data:[0,0,0,0,0,5],
+            borderWidth:1,
+            backgroundColor:'green',
+            borderColor:'',
+            // barThickness: 50, // 막대의 두께를 설정합니다.
+            // barPerentage:12, // 막대의 너비를 설정합니다. 0.5는 50% 너비를 의미합니다.
+        }]
+        const option = {
+            // line에 적용
+            // animation:{
+            //     tension:{ // 애니메이션 옵션을 정의합니다. tension은 선형 차트의 텐션을 설정합니다.
+            //         duration:1000, // 애니메이션 지속시간을 설정합니다.
+            //         easing : 'linear', // 애니메이션의 이징 함수를 설정합니다. 'linear'는 선형 이징을 의미합니다.
+            //         to : 0, // 애니메이션이 끝날 때의 값입니다.
+            //         loop : true, // 애니메이션을 반복합니다.
+            //     }
+            // },
+
+            //bar에 적용
+            animation : {
+                delay : (el)=>{return el.dataIndex*100;}
+            },
+            scales: { // 옵션을 정의합니다. 차트의 동작 방식을 설정합니다.
+                    x: {
+                        stacked : true, // x축의 스택을 활성화합니다. 여러 데이터셋이 겹쳐서 표시됩니다.
+                        // barPercentage:.1,
+                    },
+                    y: {
+                        beginAtZero: true, // y축의 시작점을 0으로 설정합니다.
+                        // max:100,
+                        // min:0,
+                        // ticks:{
+                        //     stepSize: 10, // y축의 눈금 간격을 설정합니다. 
+                            // 10으로 설정하면 10 단위로 눈금이 표시됩니다.
+                        }
+                    },
+                    // 클릭이벤트 등록
+                    onClick : (event,chartEl)=>{
+                        // console.log(event);
+                        console.log(chartEl);
+                    }
+                }
+         // 옵션을 정의합니다. 차트의 동작 방식을 설정합니다.
+        new Chart(ctx, {
+            type: 'bar', // 차트의 종류 bar, line, pie, doughnut, bubble, radar, sactter, heatmap...
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'], // x축의 라벨
+                datasets: dataSet // 데이터셋을 설정합니다.
+            },
+            options: option // 차트의 옵션을 설정합니다.
+             
+        });
+    </script>
+
+
+
+</body>
+
+</html>
