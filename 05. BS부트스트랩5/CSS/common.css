@@ -1,0 +1,59 @@
+ /* CSS에서 가장 바깥의 최상위 요소 */
+ :root{font-size:16px}
+ 
+
+ *{box-sizing: border-box;}
+ ul{list-style: none; padding: 0; margin: 0;}
+ body{padding: 0; margin: 0;}
+ a{text-decoration: none; color:black}
+
+ /*  */
+.wrapper{}
+.wrapper>header{}
+.wrapper>header>.top-header{}
+.wrapper>header>nav{}
+
+/*  */
+.wrapper>main{}
+.wrapper>main>section{}
+
+
+/* 배너안에 < > styling */
+.wrapper>main>section.banner-block .carousel-control-prev,
+.wrapper>main>section.banner-block .carousel-control-next{
+    border: 5px solid white;
+    font-size : 2rem !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+    width: 48px;
+    height: 48px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+/* 카드 section */
+.wrapper>main>section.card-block{
+    display: grid;
+    grid-template-columns: repeat(4,1fr); /* 4개의 카드가 가로로 나열됨 */ 
+    /* 1fr은 1 fraction의 약자로, 가용 공간을 균등하게 나누는 단위 */ /* repeat로 반복작업*/
+    /* border : 5px solid red; */
+    gap: 15px;
+
+    /* 아이템 가운데 배치 */
+    place-items: center; /*grid의 자식 요소들을 가운데 정렬*/
+    padding : 30px 0;
+}
+
+/* Tab contents  */
+.wrapper>main>section.navtap-block .tab-content{
+    min-height: 100px;
+}
+
+
+/*  */
+.wrapper>footer{}
+
+
+
