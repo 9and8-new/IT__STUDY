@@ -74,6 +74,8 @@ header{
 }
 .main-menu>li>a{
     font-size: 15px;
+    font-weight: 500;
+    color:#272727
 }
 .sub-menu{
     position: absolute;
@@ -96,6 +98,8 @@ header{
 .sub-menu>li>a{
     display:block;
     font-size: .8rem;
+    font-weight: 500;
+    margin: 3px 0;
 }
 .main-menu>li:hover>.sub-menu{
     display:block;

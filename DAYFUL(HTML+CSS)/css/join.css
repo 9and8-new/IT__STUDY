@@ -52,10 +52,11 @@ form>div>input{
     border-radius: 2px;
 }
 .j-btn-input>img{
-    width: 5%;
-    margin-left: -215px;
-    margin-top: 10px;
+    width: 4%;
+    margin-left: -205px;
+    margin-top: 15px;
     position: absolute;
+    border-radius: 20%;
 }
 .join-btn{
     justify-content: center;

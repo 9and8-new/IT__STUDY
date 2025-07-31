@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/header-mobile.css">
     <link rel="stylesheet" href="./css/footer-mobile.css">
     <link rel="stylesheet" href="./css/order.css">
-    <title>메인페이지</title>
+    <title>주문하기</title>
 </head>
 
 <body>
@@ -18,14 +18,14 @@
         <header>
             <div class="top-header">
                 <div class="logo">
-                    <a href=""><img src="./images/DAYFUL.png" alt="logo" style="width: 112px;"></img></a>
+                    <a href="./main.html"><img src="./images/DAYFUL.png" alt="logo" style="width: 112px;"></img></a>
                 </div>
                 <nav>
                     <ul class="top-gnb">
                         <li><a href="">LOGIN</a></li>
-                        <li><a href="">JOIN</a></li>
+                        <li><a href="./join.html">JOIN</a></li>
                         <li><a href="">ORDER</a></li>
-                        <li><a href="">CART</a></li>
+                        <li><a href="./cart.html">CART</a></li>
                         <li><a href="">MY PAGE</a></li>
                     </ul>
                     <div class="Search-box">
@@ -71,6 +71,7 @@
                             <li><a href="">NOTICE</a></li>
                             <li><a href="">Q&A</a></li>
                             <li><a href="">REVIEW</a></li>
+                            <li><a href="./servicecenter.html">SERVICE</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -193,6 +194,7 @@
                         <div class="coupon-options" id="coupon-list">
                             <div onclick="applyCoupon(10)">10% 쿠폰</div>
                             <div onclick="applyCoupon(20)">20% 쿠폰</div>
+                            <div onclick="applyCoupon(0)">적용 취소</div>
                         </div>
                     </div>
                     <div class="price-list">
@@ -215,9 +217,7 @@
             </div>
             <div class="footcall">
                 <ul>
-                    <li>
-                        <h2>CS CENTER</h2>
-                    </li>
+                    <li><h2>CS CENTER</h2></li>
                     <li>카카오 채널 상담</li>
                     <li>EMAIL : Koreait777@naver.com</li>
                     <li>평일 (월 ~ 금) AM 09:00 ~ PM 18:00 (공휴일 제외)</li>
@@ -240,17 +240,16 @@
                     <li><a href="" style="color:#ffffff">서비스가입사실확인</a></li>
                 </ul>
             </div>
-    </div>
-    <div class="bottom-footer">
-        <ul class="f-menu">
-            <li><a href="">회사소개</a></li>
-            <li><a href="">이용약관</a></li>
-            <li><a href="">개인정보 처리방침</a></li>
-            <li><a href="">제보센터</a></li>
-        </ul>
-        <span style="font-size:.8rem;">Copyright © 데이풀(Makeyourself). All rights reserved. Designed by Showdesign</span>
-    </div>
-    </footer>
+        </footer>
+        <div class="bottom-footer">
+            <ul class="f-menu">
+                <li><a href="">회사소개</a></li>
+                <li><a href="">이용약관</a></li>
+                <li><a href="">개인정보 처리방침</a></li>
+                <li><a href="">제보센터</a></li>
+            </ul>
+            <span style="font-size:.8rem;">Copyright © 데이풀(Makeyourself). All rights reserved. Designed by Showdesign</span>
+        </div>
     </div>
 
     <script src="./JS/order.js"></script>

@@ -33,16 +33,7 @@ document.getElementById('login-username').innerText = defaultInfo.username + "�
 
 // 장바구니 샘플 데이터
 let cartItems = [
-    { id: 1, name: "Adidas Waffle Shirt", options: ["FREE", "XL", "L"], option: "FREE", qty: 1, price: 62100 },
-    { id: 2, name: "OFOGS Original Ballcap", options: ["FREE", "네이비", "블랙"], option: "FREE", qty: 1, price: 53100 },
-    { id: 3, name: "Nike Air Max", options: ["260", "270", "280"], option: "270", qty: 1, price: 129000 },
-    { id: 4, name: "UNIQLO U Crew Neck", options: ["L", "XL", "XXL"], option: "L", qty: 3, price: 29900 },
-    { id: 5, name: "New Balance 993", options: ["260", "265", "270"], option: "265", qty: 1, price: 219000 },
-    { id: 6, name: "Birkenstock Boston", options: ["42", "43", "44"], option: "42", qty: 1, price: 115000 },
-    { id: 7, name: "Carhartt Cap", options: ["FREE", "네이비", "블랙"], option: "네이비", qty: 1, price: 35000 },
-    { id: 8, name: "ADER Error Bag", options: ["One Size", "Mini", "Big"], option: "One Size", qty: 1, price: 87000 },
-    { id: 9, name: "Supreme Tee", options: ["XL", "L", "M"], option: "XL", qty: 1, price: 95000 },
-    { id: 10, name: "Mmlg 1987 Hoodie", options: ["M", "L", "XL"], option: "M", qty: 2, price: 89000 }
+    { id: 1, name: "[남여공용] 프렌드 밴딩 카고 버뮤다 팬츠 (5 color)", options: ["그레이/FREE", "블랙/FREE", "화이트/FREE"], option: "FREE", qty: 1, price: 62100 },
 ];
 
 // 구매자 정보 세팅
@@ -87,22 +78,22 @@ function renderCart() {
     const cartList = $("cart-list");
     cartList.innerHTML = cartItems.map((item, i) => `
         <div class="summary-item" data-id="${item.id}">
-          <div class="summary-thumb">이미지</div>
+          <img class="summary-thumb" src="./images/NEW10-1.png" alt="상품 이미지"></img>
           <div class="summary-info">
-            <div class="cart-name">${item.name}</div>
-            <div class="cart-opt">
-              옵션<span class="dot">·</span>
+            <div class="cart-name mbt">${item.name}</div>
+            <div class="cart-opt mb">
+              옵션<span class="dot">:</span>
               <select class="cart-opt-select" data-idx="${i}">
                 ${item.options.map(opt => `<option value="${opt}"${item.option === opt ? ' selected' : ''}>${opt}</option>`).join('')}
               </select>
             </div>
-            <div class="cart-qty">
-              수량<span class="dot">·</span>
+            <div class="cart-qty mb">
+              수량<span class="dot">:</span>
               <select class="cart-qty-select" data-idx="${i}">
                 ${[...Array(10).keys()].map(n => `<option value="${n + 1}"${item.qty == n + 1 ? ' selected' : ''}>${n + 1}</option>`).join('')}
               </select>
             </div>
-            <div class="cart-price">가격<span class="dot">·</span><b>${(item.price * item.qty).toLocaleString()}원</b></div>
+            <div class="cart-price">가격<span class="dot">:</span><b>${(item.price * item.qty).toLocaleString()}원</b></div>
           </div>
           <button class="remove-btn" title="삭제" data-idx="${i}">✕</button>
         </div>
