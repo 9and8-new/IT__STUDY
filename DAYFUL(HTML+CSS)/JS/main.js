@@ -31,3 +31,23 @@ btns.forEach((btn)=>{
         }
     })
 })
+
+const swiperTopBest=new Swiper('.main-topbest .swiper',{
+            direction: 'horizontal',
+            loop: true,
+            autoplay:{
+                delay:3500,
+                pauseOnMouseEnter : true,
+            },
+
+            pagination: {
+                el: '.swiper .swiper-pagination',
+                clickable:true,
+                type:'bullets',
+            },
+
+            navigation: {
+                nextEl: '.swiper .swiper-button-next',
+                prevEl: '.swiper .swiper-button-prev',
+            },
+        })

@@ -104,8 +104,8 @@
 
     /* 베이지색 top박스*/
     .top-box .title {
-
       font-size: 28px;
+      font-weight: 400;
       margin-bottom: 10px;
     }
 
@@ -148,6 +148,8 @@
     .faq-table td.category {
       width: 100px;
       color: #888;
+      white-space: nowrap;
+      font-weight: 500;
     }
 
     .footer-msg {

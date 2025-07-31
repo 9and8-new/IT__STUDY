@@ -10,9 +10,6 @@
     margin-bottom: 30px;
     font-weight: bold;
 }
-.m-new10j>h2{
-    margin-bottom: 0;
-}
 .m-new10-img{
     display: flex;
     gap:30px;
@@ -21,6 +18,7 @@
     /* flex-direction: column; */
 }
 .m-n10-info{
+    font-family: 'NanumGothicBlod';
     font-weight: bold;
 }
 .m-n10-img{

@@ -23,6 +23,26 @@
     .n10-watchlist{
         padding-left:280px;
     }
+    .main-topbest .swiper-slide img{
+        max-width: 100%;
+    }
+    .main-topbest .swiper-btn {
+        left: -20px;
+        top: -8%;
+        width: 110%;
+    }
+    .main-topbest .swiper-button-prev::after,
+    .main-topbest .swiper-button-next::after {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+    .swiper-pagination span{
+        width: 9px;
+        height: 9px;
+    }
+    .main-topbest .swiper-slide{
+        height: 115px;
+    }
 }
 
 /* TOP BEST, NEW10%, SALE50% */
@@ -30,14 +50,6 @@
     .main-topbest{
         max-width: 95%;
         margin: 50px 0;
-    }
-    .topbest-silde{
-        flex-wrap:wrap;
-    }
-    .topbest-silde>img{
-        flex:1 1 50px;
-        height: auto;
-        max-width: 100%;
     }
 }
 
