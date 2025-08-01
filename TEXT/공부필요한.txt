@@ -1,0 +1,23 @@
+<input>
+<span>
+<p>
+ perspective
+transform-style:preserve-3d;
+backface-visibility: hidden;
+깃허브
+슬렉
+노션
+https://swiperjs.com/get-started -- 주소
+
+===========================
+map과 filter는 확실히 알아야 한다.
+
+면접때 동기화 비동기회 질문이 많음 --> 알아두자!
+
+=============JS===================
+보간법
+호이스팅
+클로저
+콜백
+노드
+동기 비동기
