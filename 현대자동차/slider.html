@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>현대차 스타일 슬라이드</title>
+
+  <!-- Swiper의 CSS를 불러옴 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    /* 전체 화면을 채우기 위한 스타일 */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 스와이퍼 컨테이너가 화면 전체를 차지하도록 */
+    .swiper {
+      width: 100%;
+      height: 50vh;
+    }
+
+    /* 슬라이드 하나하나의 스타일 */
+    .swiper-slide {
+       display: flex;
+      align-items: center;
+      justify-content: center;
+      /* font-size: 2rem;  */
+      color: white;
+      background-size: cover;
+      background-position: center;
+    }
+    
+
+    /* 각 슬라이드별 배경 이미지 예시 */
+    /* .slide1 {
+      background-image: url('https://www.hyundai.com/contents/mainbanner/ioniq6_23my_pc.jpg');
+    }
+    .slide2 {
+      background-image: url('https://www.hyundai.com/contents/mainbanner/palisade_pc.jpg');
+    }
+    .slide3 {
+      background-image: url('https://www.hyundai.com/contents/mainbanner/staria_pc.jpg');
+    } */
+  </style>
+</head>
+<body>
+
+  <!-- Swiper 슬라이드 구조 시작 -->
+  <div class="swiper">
+    <!-- 슬라이드들을 감싸는 요소 -->
+    <div class="swiper-wrapper">
+      <!-- 각각의 슬라이드들 -->
+        <div class="swiper-slide slide">
+            <a href="javascript:void(0)">
+                <img src="./images/ioniq5_main_kv_w.avif" alt="">
+            </a>
+        </div>
+        <div class="swiper-slide slide">
+            <a href="javascript:void(0)">
+                <img src="./images/Main-KV_Car_CASPER-Electric.avif" alt="">
+            </a>
+        </div>
+        <div class="swiper-slide slide">
+            <a href="">
+                <img src="./images/avante-25my-main-kv-w.avif" alt="">
+            </a>
+        </div>
+    </div>
+
+    <!-- 좌우 버튼 추가 (선택사항) -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- 페이지 표시 점 (선택사항) -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS 불러오기 -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Swiper 슬라이드 동작 설정 -->
+  <script>
+    // Swiper 객체를 생성하면서 옵션을 지정함
+    const swiper = new Swiper('.swiper', {
+      loop: true, // 무한 루프
+      speed: 1000, // 전환 속도 (밀리초)
+      autoplay: {
+        delay: 4000, // 자동 전환 간격
+        disableOnInteraction: false, // 사용자가 터치해도 자동재생 유지
+      },
+      pagination: {
+        el: '.swiper-pagination', // 페이지네이션 위치
+        clickable: true, // 점 클릭 가능
+      },
+      navigation: {
+        nextEl: '.swiper-button-next', // 다음 버튼
+        prevEl: '.swiper-button-prev', // 이전 버튼
+      },
+      effect: 'fade', // 페이드 효과 (슬라이드 대신 부드럽게 전환)
+    });
+  </script>
+</body>
+</html>
