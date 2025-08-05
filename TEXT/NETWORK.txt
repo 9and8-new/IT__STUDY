@@ -652,11 +652,40 @@ https://tomcat.apache.org/download-90.cgi
 다운로드에서 tomcat 9 0-> 32-bit/64-bit Windows Service Installer (pgp, sha512) 다운
 
 
-jdk를 c드라이브에 압축풀기.
-윈도우키 누르고 시스템속성창 켜기 -> 고급탭에서 환경변수 -> 시스템변수에서 p눌러서 Path누르고 편집 
--> 이전 jdk압축푼 폴더 속 bin폴더 들어간뒤 경로 복사 -> 새로만들기 -> 경로 복사한거 추가 -> 확인 창 나가면서도 전부 확인
-|| apache-tomcat.exe 작동 -> 다음계속 -> 누른후 server shutdown port창에서 HTTP/1.1 Connector Port를 8090으로
--> UserName : admin / PW 1234 -> 다운위치 c드라이브 jdk-21.0.2폴더(C:\jdk-21.0.2)로 ->설치후 체크박스 다 해제
--> 실행창에서 services.msc / Apache Tomcat 9.0 Tomcat9찾아서 더블클릭 -> 서비스상태 중지, 시작유형 수동에서 시작누르기
---> 인터넷창에서 localhost:8090 입력하면 아파치톰캣 화면이 뜨면 됨 -> 다시  서비스상태 중지누르기 
--> 중지누른 상태로 새로고침했을때 페이지가 안나와야함. 
+※※※jdk를 c드라이브에 압축풀기.※※※
+1. 윈도우키 누르고 시스템속성(sysdm.cpl)창 켜기 -> 고급탭에서 환경변수 -> 시스템변수에서 Path검색후 
+2. 이전 jdk압축푼 폴더 속 bin폴더 들어간뒤 경로 복사(C:\jdk-21.0.2\bin) -> 새로만들기 -> 경로 복사한거 추가 -> 확인 창 나가면서도 전부 확인
+3.  apache-tomcat.exe 작동 -> 다음계속 -> 누른후 server shutdown port창에서 HTTP/1.1 Connector Port를 8090으로 변경. UserName : admin / PW 1234 -> 다운위치 c드라이브 jdk-21.0.2폴더(C:\jdk-21.0.2)로 ->설치후 체크박스 다 해제
+4. 실행창에서 services.msc / Apache Tomcat 9.0 Tomcat9찾아서 더블클릭 -> 서비스상태 중지, 시작유형 수동에서 시작누르기
+5. 서비스상태 : 실행중 일때, 인터넷창에서 localhost:8090 입력하면 아파치톰캣 화면이 뜨고 페이지에서 Server Status버튼 클릭후 admin, 1234 로그인해본뒤 -> 다시 services.mas에서  서비스상태 중지누르기 
+-> 중지누른 상태로 새로고침했을때 페이지가 안나와야 정상.  
+
+※※※Eclips 실행 설정법※※※
+1. eclips를 c드라이브로 이동 -> eclips.exe실행 후 체크없이실행
+2. Eclipse IDE창에서 상단 옵션에 Window에서 Perferences클릭. General -> workspaces에서 Texfile encoding UTF-8(한국어지원) 확인
+-> files검색후 Web에 CSS, HTML, JSP 유니코드 UTF-8인지 확인하기 
+
+(???확인용???)
+file -> newfile -> Dynamic web project클릭 
+--> name = webproject -> finish -> 다시 상단에 file -> new -> other -> server검색 -> Apache에 Tomcat 9버전 선택
+->  Browse클릭후 실제 설치된 파일 넣기(C드라이브 -> 프로그램파일s -> ApachSoftware Foundation ->Tomcat 9버전클릭
+--> 예 클릭 후 그폴더로 걸정. -> finish -> 하단에 Severs누른뒤 Tomcat더블클릭하면 톰캣설정창 나옴 -> 설정창에서 
+Port Name에서 Tomcat admin port 더블클릭후 8091로 지정 후 컨트롤+s로 저장 -> 다시 하단servers에서 톰캣 우클릭후 클린
+-> 스타트 눌러서 방화벽 허용해주고 다시 스탑  / 톰캣과 웹프로젝트 연동 
+
+※※※Eclipse 파일 생성법※※※
+1. 파일 -> 뉴파일 -> others -> server검색후 클릭 -> Apache 폴더에서 tomcat 9버전  -> Next클릭후 Browse에서 c드라이브
+Program Files -> Apache Software Foundation -> Tomcat 9.0 폴더 선택 -> Finish
+2. 하단에 sever에 나온 tomcat 더블클릭 후 Port Name쪽에서 Port Number에 tomcat.admin port 8091에서 컨트롤 + s  후 다시 server에 있는 tomcat 우클릭 스타트 / 클린 / 작동확인 후 스탑
+3. 왼쪽상단 파일 -> 뉴파일 -> Dynamic web project 클릭 -> 프로젝트이름 설정 -> Target runtime을 Apache Tomcat으로 설정 후 Finish
+4. WEB_PROJECT하단 폴더(webapp)에서 JSP파일 생성 후 파일이름 index.jsp로 생성 후 Finish / index.jsp에서 내용 넣어보기 -> index.jsp파일에서 run누른뒤 파일실행(밑 체크박스는 항상 톰캣사용한다는 뜻임 체크필수)
+   ===> 파일 실행됨
+
+※※※파일 삭제하고 다시 하기※※※
+c드라이브 jdk 21.0.2폴더 삭제 -> 시스템속성 -> 환경변수 -> 시스템변수에 Path더블클릭 후 jdk-21.0.2삭제 -> c드라이브에 Eclipse폴더도 삭제후, 제어판에서 tomcat 9버전 삭제
+
+
+????????
+좌측 Web_project파일에 우클릭 설정
+Java Build Path눌러서 Libraries에서 Classpath 에서 Add Library클릭 ->   // 왼쪽에서 webproject파일 안에 src->main안에 webapp우클릭
+New-> JSP -> 이름 index로 설정 후 body에 HELLO WORLD입력후 index파일에 우클릭후 run on server클릭  // 서버,파일을 삭제할때는 체크하고 파일까지 같이 지워야함

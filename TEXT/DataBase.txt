@@ -1,0 +1,115 @@
+8/05
+
+데이터베이스란 : 목적에 맞게 묶어둔 단위?? => 정보의 집합체(데이터 저장소)
+
+DBMS : DB관리 시스템
+데이터베이스를 생성, 구조화 하고 CRUD와 같은 작업을 수행할 수 있도록 돕는 운영 및 관리용 소프트웨어
+
+SQL : 명령어 언어
+DBMS에게 데이터를 조회/삽입/수정/삭제하라고 명령하는 언어(DB용 구조화된 문법체계)
+
+
+SQL 다운로드
+1. mysql community download 검색 하단에 MySQL Installer for Windows 클릭
+354m인 하단 프로그램 다운로드 / 로그인x No thanks, just start my download 클릭.
+Installer실행후 server전용으로 설치 -> 비밀번호 설정(1234) -> 
+3306번 prot 기억
+2. 설치후 MySQL Command Line Client 실행후 비밀번호 입력
+
+3. C드라이버 -> Program Files -> MySQL -> MySQL Server 8.0 -> bin 폴더에서 CMD 열기
+CMD 에서 mysqld -u root -p 입력 후 Password 입력
+에러 발생시
+MySQL Installer 검색후 클릭  -> ADD -> Application -> workbench -> 8.0에서  제일 최신버전 클릭후 화살표 클릭 후
+NEXT, EXECUTE
+4. Workbench에서 계정 접속 후 비밀번호 입력
+
+데이터베이스 언어(SQL)종류
+1. DDL : 데이터베이스 구조 정의 | 명령어 : CREATE, ALTER, DROP
+2. DML : 데이터 조작(삽입,수정,삭제,조회) | 명령어 : INSERT, UPDATE, DELETE, SELECT 
+3. DCL : 권한부여, 취소 | 명령어 : GRANT, REVOKE
+4. TCL : 트랜잭션 제어 | COMMIT, ROLLBACK, SAVEPOINT
+
+PK = 유일값. Not Null, 중복X
+
+작업위치 변경 : use 테이블명;
+열이름 자료형 작업조건 -> 테이블 만드는 규칙
+  id   varchar(45) primaryeky(not null)
+
+Unique : PK와 같이 유일값을 넣어야하지만, Not Null을 넣을 수 있다.
+
+커맨드 테이블생성
+MySQL Command Line
+CREATE TABLE `tbl_std` (
+  `id` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `age` INT NULL,
+  PRIMARY KEY (`id`));
+
+추가
+ALTER TABLE `test1db`.`tbl_std` 
+ADD COLUMN `phone` VARCHAR(20) NULL AFTER `age`;
+
+삭제
+ALTER TABLE `test1db`.`tbl_std` 
+DROP COLUMN `name`;
+
+수정
+ALTER TABLE `test1db`.`tbl_std` 
+CHANGE COLUMN `phone` `tel` VARCHAR(100) NULL DEFAULT NULL ;
+=
+ALTER TABLE tbl_std
+CHANGE COLUMN name username varchar(100) null;
+
+==========================
+추가하기
+INSERT INTO test1db.tbl_user (user_id, user_password, user_name) VALUES ('aaa', '111', '홍길동');
+use test2db;
+show tables;
+desc tbl_user
+
+업데이트
+UPDATE `test1db`.`tbl_user` SET `user_password` = '1234', `user_name` = '박효신' WHERE (`user_id` = 'aaa');\
+조건절의 용도 ↑ 특정 행(조건)에 한에서 컬럼을 변경한다
+
+행 삭제
+DELETE FROM `test1db`.`tbl_user` WHERE (`user_id` = 'aaa');
+==========================
+Mysql cmd명령어
+1. desc DB명.테이블명; 테이블 구조 확인
+2. 추가하기 : alter table 테이블명 add column 컬럼명 varchar(20)자료형 not null작업조건;
+==> alter table tbl_std add column phone varchar(20) not null;
+3. 삭제하기 : alter table 테이블명 drop column 컬럼명;
+==> alter table tbl_ste drop column age;
+4. 수정하기 : alter table [테이블명] change column [변경할 컬럼명] [변경될 컬럼명] 자료형 작업조건
+==> alter table tbl_std change column name username varchar(100) null;
+5. 테이블삭제 : drop table 테이블명
+==> drop table tbl_std;
+6. 테이블 행(컬럼) 값추가 : insert into 테이블명(컬럼1, 컬럼2, 컬럼3) valuse('순서대로 넣을값','값','값');
+==> insert into tbl_user(user_id,user_password,user_name) valuse('a','1111','홍길동');
+7. 테이블 확인 : select 컬럼명,컬럼명 from 테이블명;
+==> select user_id,user_password,user_name from tbl_user;
+8. 모든 테이블 확인 : select * from 테이블명
+==> select * from tbl_user
+9. 모든 컬럼에 데이터를 넣을것이면 컬럼명 무시 가능
+==> insert into tbl_user values('b','2222','지연');
+10. 특정 조건으로 변경(update) : update 테이블명  set 변경할행 ='변경할값' where 행 ='컬럼값'
+==>update tbl_user set user_name='한석봉' where user_id='b';
+조건절을 잡지 않으면 선택 테이블의 모든 행이 바뀜
+11. 행 삭제 : delete from 테이블명 where 삭제할 행='삭제컬럼';
+delete from tbl_user : 다 삭제됨
+
+////DCL////
+<계정만들기>
+Administration에서 Users and Privileges클릭
+Add Account => login Name = user1, Limit to Hosts Matching = localhost, Password : korea11!
+명령어 : create user 유저명@localhost identified by'1234'; // -- localhost : 현재컴퓨터
+
+<권한부여하기>
+Administration에서  Users and Privileges에서 권한부여할 유저 클릭후, Schema Privileges클릭
+Add Entry클릭후 부여할 테이블? 선택(test1db)후 권한할것들 체크
+명령어 : grant select,insert on test1db.* to 유저명@localhost;
+
+<원격접속하기>
+create user 이름@'%' identified by '1234';
+공용계정에 % 쓰면 출발지 신경안쓴다(누구든지)
+grant select,insert on shopdb.* to remote@'%'
