@@ -1,0 +1,198 @@
+8/05
+
+데이터베이스란 : 목적에 맞게 묶어둔 단위?? => 정보의 집합체(데이터 저장소)
+
+DBMS : DB관리 시스템
+데이터베이스를 생성, 구조화 하고 CRUD와 같은 작업을 수행할 수 있도록 돕는 운영 및 관리용 소프트웨어
+
+SQL : 명령어 언어
+DBMS에게 데이터를 조회/삽입/수정/삭제하라고 명령하는 언어(DB용 구조화된 문법체계)
+
+
+SQL 다운로드
+1. mysql community download 검색 하단에 MySQL Installer for Windows 클릭
+354m인 하단 프로그램 다운로드 / 로그인x No thanks, just start my download 클릭.
+Installer실행후 server전용으로 설치 -> 비밀번호 설정(1234) -> 
+3306번 prot 기억
+2. 설치후 MySQL Command Line Client 실행후 비밀번호 입력
+
+3. C드라이버 -> Program Files -> MySQL -> MySQL Server 8.0 -> bin 폴더에서 CMD 열기
+CMD 에서 mysqld -u root -p 입력 후 Password 입력
+에러 발생시
+MySQL Installer 검색후 클릭  -> ADD -> Application -> workbench -> 8.0에서  제일 최신버전 클릭후 화살표 클릭 후
+NEXT, EXECUTE
+4. Workbench에서 계정 접속 후 비밀번호 입력
+
+데이터베이스 언어(SQL)종류
+1. DDL : 데이터베이스 구조 정의 | 명령어 : CREATE, ALTER, DROP
+2. DML : 데이터 조작(삽입,수정,삭제,조회) | 명령어 : INSERT, UPDATE, DELETE, SELECT 
+3. DCL : 권한부여, 취소 | 명령어 : GRANT, REVOKE
+4. TCL : 트랜잭션 제어 | COMMIT, ROLLBACK, SAVEPOINT
+
+PK = 유일값. Not Null, 중복X
+
+작업위치 변경 : use 테이블명;
+열이름 자료형 작업조건 -> 테이블 만드는 규칙
+  id   varchar(45) primaryeky(not null)
+
+Unique : PK와 같이 유일값을 넣어야하지만, Not Null을 넣을 수 있다.
+
+커맨드 테이블생성
+MySQL Command Line
+CREATE TABLE `tbl_std` (
+  `id` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `age` INT NULL,
+  PRIMARY KEY (`id`));
+
+추가
+ALTER TABLE `test1db`.`tbl_std` 
+ADD COLUMN `phone` VARCHAR(20) NULL AFTER `age`;
+
+삭제
+ALTER TABLE `test1db`.`tbl_std` 
+DROP COLUMN `name`;
+
+수정
+ALTER TABLE `test1db`.`tbl_std` 
+CHANGE COLUMN `phone` `tel` VARCHAR(100) NULL DEFAULT NULL ;
+=
+ALTER TABLE tbl_std
+CHANGE COLUMN name username varchar(100) null;
+
+==========================
+추가하기
+INSERT INTO test1db.tbl_user (user_id, user_password, user_name) VALUES ('aaa', '111', '홍길동');
+use test2db;
+show tables;
+desc tbl_user
+
+업데이트
+UPDATE `test1db`.`tbl_user` SET `user_password` = '1234', `user_name` = '박효신' WHERE (`user_id` = 'aaa');\
+조건절의 용도 ↑ 특정 행(조건)에 한에서 컬럼을 변경한다
+
+행 삭제
+DELETE FROM `test1db`.`tbl_user` WHERE (`user_id` = 'aaa');
+==========================
+Mysql cmd명령어
+1. desc DB명.테이블명; 테이블 구조 확인
+2. 추가하기 : alter table 테이블명 add column 컬럼명 varchar(20)자료형 not null작업조건;
+==> alter table tbl_std add column phone varchar(20) not null;
+3. 삭제하기 : alter table 테이블명 drop column 컬럼명;
+==> alter table tbl_ste drop column age;
+4. 수정하기 : alter table [테이블명] change column [변경할 컬럼명] [변경될 컬럼명] 자료형 작업조건
+==> alter table tbl_std change column name username varchar(100) null;
+5. 테이블삭제 : drop table 테이블명
+==> drop table tbl_std;
+6. 테이블 행(컬럼) 값추가 : insert into 테이블명(컬럼1, 컬럼2, 컬럼3) valuse('순서대로 넣을값','값','값');
+==> insert into tbl_user(user_id,user_password,user_name) valuse('a','1111','홍길동');
+7. 테이블 확인 : select 컬럼명,컬럼명 from 테이블명;
+==> select user_id,user_password,user_name from tbl_user;
+8. 모든 테이블 확인 : select * from 테이블명
+==> select * from tbl_user
+9. 모든 컬럼에 데이터를 넣을것이면 컬럼명 무시 가능
+==> insert into tbl_user values('b','2222','지연');
+10. 특정 조건으로 변경(update) : update 테이블명  set 변경할행 ='변경할값' where 행 ='컬럼값'
+==>update tbl_user set user_name='한석봉' where user_id='b';
+조건절을 잡지 않으면 선택 테이블의 모든 행이 바뀜
+11. 행 삭제 : delete from 테이블명 where 삭제할 행='삭제컬럼';
+delete from tbl_user : 다 삭제됨
+
+////DCL////
+<계정만들기>
+Administration에서 Users and Privileges클릭
+Add Account => login Name = user1, Limit to Hosts Matching = localhost, Password : korea11!
+명령어 : create user 유저명@localhost identified by'1234'; // -- localhost : 현재컴퓨터
+
+<권한부여하기>
+Administration에서  Users and Privileges에서 권한부여할 유저 클릭후, Schema Privileges클릭
+Add Entry클릭후 부여할 테이블? 선택(test1db)후 권한할것들 체크
+명령어 : grant select,insert on test1db.* to 유저명@localhost;
+
+<원격접속하기>
+create user 이름@'%' identified by '1234';
+공용계정에 % 쓰면 출발지 신경안쓴다(누구든지)
+grant select,insert on shopdb.* to remote@'%'
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+8.06
+
+Users and Privileges에서 Administrative Roles에서는 세부 권한을 할 수 있다?
+
+모든 권한부여 : grant all privileges on DB.테이블 to 계정 '%'
+==> grant all privileges on *.* to test3@'%';
+
+외부파일 부르기 => 스키마생성후 테이블에서 우클릭 후 table data import wizard클릭후 파일 불러오기
+
+Data Export == 백업
+백업할 폴더지정
+
+Data Import == 불러오기
+클릭후 폴더지정
+
+> : 표준출력리다이렉션
+echo "Hello world" > test.txt = Hello world를 test.txt로 저장하겠다
+
+< : 표준입력리다이렉션
+
+단일 DB 백업
+code
+하기전 서버설정. c드라이브 -> programfiles -> MySQL -> MySQL Server8.0 -> bin
+주소 전체 복사 후 sysdm.cpl에서 고급 -> 환경변수 -> 시스템변수 Path편집 -> 새로만들기 -> 주소복사
+mysqldump -u root -p [DB이름] > [파일이름].sql
+
+전체 DB 백업
+code
+mysqldump -u root -p --all-databases > all_backup.sql
+
+전체 DB 복구
+code
+mysql -u root -p DB명 < DB명.sql
+==> mysql -u root -p opendatadb < opendatadb.sql
+
+데이터베이스 설계 : 사용자 요구사항을 분석하여 효율적이고 일관된 데이터 저장 구조를 정의하는 작업
+정보 시스템 구축의 핵심 과정
+
+요구사항 분석 : 사용자와 업무 흐름을 이해하고 필요한 데이터를 도출
+개념적 설계 : ER 모델을 사용하여 현실 세계의 객체 및 관계를 추상화
+논리적 설계 : DBMS 독립적 논리 모델 작성 (정규화 포함) | 정규화 : 데이터 중복제거, 이상현상방지,데이터일관성유지
+물리적 설계 : 실제 DBMS에서의 저장 구조, 인덱스, 파티셔닝 등 정의
+구현 : DBMS에 스키마와 테이블을 생성하고 적용
+
+ERD : 데이터베이스 설계할때 객체끼리 어떤 관계인지 그림으로 표현하는 도구
+
+데이터 모델링 : 현실 세계의 정보를 데이터베이스로 구조화하는 작업
+모델링의 3단계
+개념적 모델링 | 모델 : ER 모델 | 주요표현방식 : 엔터티, 속성, 관계
+논리적 모델링 | 모델 : 관계형 모델 | 테이블, 속성, 키, 정규화
+물리적 모델링 | 모델 : 물리적 구조 | 저장소, 인덱스, 파티션 등
+
+1. 개념적 설계(ER모델)
+Entity(엔터티): 독립적인 객체 (ex. 학생, 도서)
+Attribute(속성): 객체의 특성 (ex. 학번, 이름)
+Relationship(관계): 엔터티 간 연결 (ex. 학생-수강-과목)
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ	
+08.07 ERD 생성
+상단메뉴 File -> New Model -> Schema클릭 후 테이블명정한뒤 Add Diagram
+좌측 place a new table 클릭하면 생성됨.
+
+외래키열이 들어갈 위치부터 클릭하고 기본키열 클릭함
+외래키는 임의의 이름으로 생성됨 = 변경가능
+
+Foreign Keys
+기본키열의 값이 바꼈을때 외래키열도 함께 바꾸도록 하는것에 onupdate에 cascade
+기본키열의 값이 삭제됬을때 외래키열도 같이 삭제하는것 ondelete cascade
+PK를 설정하면 실선으로 변함 = 강한결합관계
+완성되면 상단 메뉴 Database -> forward engineer클릭으로 생성
+
+만들어진 테이블명에 설정버튼 눌러서 테이블 설정도 가능함.
+
+man에 1,2,3 woman에 4,5,6 넣고  married에 값넣어주기. (서로에 넣어둔 값을 안넣으면 오류발생)
+
+N:M(다대다)테이블은 연결만 하면 만들어짐.
+
+Database + reverse engineer = 그전 테이블만드는걸 볼 수 있음
+
+https://exam-all.duckdns.org/TEMPLATE/summary?view=Summary // MYSQLDB
+에서 JOIN ★★★★★ 무조껀 사용하니까 확인하기
