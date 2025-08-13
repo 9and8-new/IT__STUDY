@@ -1,0 +1,36 @@
+package Ch07반복문;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+public class C05기타반복처리 {
+
+	public static void main(String[] args) {
+		
+		// Collection(자료구조) 자료를 저장하기 위한 구조 / 객체를 이용 - 저장 
+		// ex) List, Map이 있음.
+		List<String> lists = new ArrayList();
+		lists.add("JAVA");			//0
+		lists.add("JSP");			//1
+		lists.add("SERVLET");		//2
+		lists.add("SPRINGBOOT");	//3
+		lists.add("NODEJS");		//4
+		lists.add("REACT");			//5
+		lists.add("DOCKER_COMPSE");	//6 인덱스 번호로 확인가능
+		
+		// 반복 : 기본 for 
+		for(int i=0;i<lists.size();i++) {
+			// 총 길이가 7개라 0부터 6까지 다 가져옴
+			System.out.println(lists.get(i));
+		}
+		
+		// 반복 : 개량 for
+		
+		// 반복 : 스트림함수 forEach
+		
+		
+	}
+
+}

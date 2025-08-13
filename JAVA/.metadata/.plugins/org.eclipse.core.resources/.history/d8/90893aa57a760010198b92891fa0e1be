@@ -1,0 +1,13 @@
+package Ch03;
+
+public class C04Typechange {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		byte x = 10;
+		byte y = 20;
+		byte result1 = x + y; //?
+	}
+
+}

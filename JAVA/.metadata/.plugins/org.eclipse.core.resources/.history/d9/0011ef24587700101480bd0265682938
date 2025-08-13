@@ -1,0 +1,59 @@
+package Ch07반복문;
+
+import java.util.Scanner;
+
+public class C02중첩while {
+
+	public static void main(String[] args) {
+		// 2단 - 9단 출력
+		
+//		int dan = 2;
+//		while(dan<10) 
+//		{
+////			System.out.printf("%d\n", dan);
+//			int i=1;
+//			while(i<10) 
+//			{
+////				System.out.printf("		%d\n", i);
+//				System.out.printf(" %d * %d = %d\n", dan, i, dan*i );
+//				i++;
+//			}
+//			System.out.println("");
+//			dan++;
+//		}
+		
+		//2단 - 9단
+		//9단 - 2단
+//		int dan = 9;
+//		while(dan>1) 
+//		{
+//			int i = 9;
+//			while(i>=1) 
+//			{
+//				System.out.printf("%d * %d = %d\n", dan, i, dan*i);
+//				i--;
+//			}
+//			System.out.println();
+//			dan--;
+//		}
+		//2단 - n단(n>2)
+		Scanner sc = new Scanner(System.in);
+		int dan = 2;
+		int n = sc.nextInt();
+		while(n>2) 
+		{
+			int i = 1;
+			while(i<10) 
+			{
+				System.out.printf("%d X %d = %d\n", dan, i, dan*i);
+			}
+			dan++;
+		}
+		
+		
+		
+		//n단 - m단(n<m)
+
+	}
+
+}

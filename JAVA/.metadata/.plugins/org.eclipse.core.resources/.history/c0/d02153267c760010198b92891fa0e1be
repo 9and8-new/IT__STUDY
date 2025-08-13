@@ -1,0 +1,20 @@
+package Ch03;
+
+public class C04Typechange {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// 정수 연산식 자동형변환(int 보다 작은 변수 자료형간의 산술연산시 -> int로 자동형변환)
+		byte x = 10; // int
+		byte y = 20;
+//		byte result1 = x + y; //int에서 byte로 형변환이 안된다고함 그말은? 위에가 int형임
+		// + 처럼 계산처리하면 int형으로 됨
+		
+		byte result1 = (byte)(x + y);
+		int result2 = x+y;
+		System.out.println(result1);
+	
+	}
+
+}

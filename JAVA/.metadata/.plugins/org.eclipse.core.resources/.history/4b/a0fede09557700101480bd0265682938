@@ -1,0 +1,25 @@
+package Ch07반복문;
+
+public class C02중첩while {
+
+	public static void main(String[] args) {
+		// 2단 - 9단 출력
+		
+		int dan = 2;
+		while(dan<10) 
+		{
+			System.out.printf("%d\n", dan);
+			int i=1;
+			while(i<10) 
+			{
+				System.out.printf("		%d\n", i);
+				i++;
+			}
+			dan++;
+			System.out.printf(" %d * %d = %d\n", dan, i, dan*i );	
+		}
+		
+
+	}
+
+}
