@@ -1,0 +1,19 @@
+package Ch02;
+
+public class C05StringClass {
+//실제 문자열의 위치 확인
+	public static void main(String[] args) {
+		String str1 = "Java Powerful";
+		String str2 = new String("java Programming");
+		String str3 = str1 + str2; //Java Powerful java Programming이 연결되서 메서드에 위치함 
+		String str4 = str1.concat(str2);
+		
+		
+		System.out.printf("%x\n",System.identityHashCode(str1));
+		System.out.printf("%x\n",System.identityHashCode(str2));
+		System.out.printf("%x\n",System.identityHashCode(str3));
+		System.out.printf("%x\n",System.identityHashCode(str4));
+
+	}
+
+}

@@ -3,14 +3,25 @@ package Ch01;
 public class C01Main {
 
 	public static void main(String[] args) {
-		C01Person hong = new C01Person();
-		hong.name = "홍길동";
-		hong.age =15;
-		hong.height = 177.5f;
-		hong.weight=70.5;
-		
-		System.out.printf("%s %d %f %f\n", hong.name, hong.age, hong.height, hong.weight);
+//		C01Person hong = new C01Person();
+//		hong.name = "홍길동";
+//		hong.age =15;
+//		hong.height = 177.5f;
+//		hong.weight=70.5;
+//		
+//		System.out.printf("%s %d %f %f\n", hong.name, hong.age, hong.height, hong.weight);
 
+		// GTP문제
+		C01Car car = new C01Car();
+		car.brand = "BMW";
+		car.year = 2020;
+		car.price = 55000f;
+		
+		System.out.printf("%s %d %.1f", car.brand, car.year,car.price);
+				
+		
+				
+		
 	}
 
 }
