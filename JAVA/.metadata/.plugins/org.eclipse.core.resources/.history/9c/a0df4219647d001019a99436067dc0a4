@@ -1,0 +1,64 @@
+package Ex;
+
+public class BookDto {
+   private Long bookCode;
+   private String bookName;
+   private String publisher;
+   private String isbn;
+
+   // 디폴트 생성자 : 값이 전달되지 않아도 객체를 생성자
+   public BookDto() {
+   }
+
+   // 모든 인자 생성자 : 필요한 모든 값을 매개변수로 받아서 한 번에 필드에 넣는 생성자
+   public BookDto(Long bookCode, String bookName, String publisher, String isbn) {
+      super();
+      this.bookCode = bookCode;
+      this.bookName = bookName;
+      this.publisher = publisher;
+      this.isbn = isbn;
+   }
+
+   // Getter and Setter
+   // Getter : 객체 안에 저장된 값을 꺼내오는 매서드
+   // Setter : 객체 안에 저장된 값을 바꿔주는 메서드
+   public Long getBookCode() {
+      return bookCode;
+   }
+
+   public void setBookCode(Long bookCode) {
+      this.bookCode = bookCode;
+   }
+
+   public String getBookName() {
+      return bookName;
+   }
+
+   public void setBookName(String bookName) {
+      this.bookName = bookName;
+   }
+
+   public String getPublisher() {
+      return publisher;
+   }
+
+   public void setPublisher(String publisher) {
+      this.publisher = publisher;
+   }
+
+   public String getIsbn() {
+      return isbn;
+   }
+
+   public void setIsbn(String isbn) {
+      this.isbn = isbn;
+   }
+
+   // toString : 메모리에 저장된 데이터 객체를 문자열로 표현할 때 사용하는 메서드
+   @Override
+   public String toString() {
+      return "BookDto [bookCode=" + bookCode + ", bookName=" + bookName + ", publisher=" + publisher + ", isbn="
+            + isbn + "]";
+   }
+
+}

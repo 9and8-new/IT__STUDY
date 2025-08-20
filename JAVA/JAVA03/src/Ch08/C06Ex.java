@@ -15,7 +15,7 @@ public class C06Ex {
 				String url = "jdbc:mysql://localhost:3306/opendatadb";
 				//				 jdbc:DBMS종류//DBMS위치 / DB명
 				//JDBC참조변수
-				Connection conn = null;				// DBMS 의 특정 DB와 연결되는 객
+				Connection conn = null;				// DBMS 의 특정 DB와 연결되는 객체
 				PreparedStatement pstmt = null;		// SQL Query 전송용 객체
 				ResultSet rs = null;				// Select 결과물 담을 객체
 				
