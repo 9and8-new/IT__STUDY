@@ -1,0 +1,64 @@
+package Ch06;
+
+interface Remocon{
+	
+	void poweron();		// 추상메서드
+	void poweroff();	// 추상메서드
+}
+
+class Tv implements Remocon{
+
+	@Override
+	public void poweron() {
+		// TODO Auto-generated method stub
+		System.out.println("TV를 켭니다.");
+	}
+
+	@Override
+	public void poweroff() {
+		// TODO Auto-generated method stub
+		System.out.println("TV를 끕니다.");
+	}}
+
+// 임플리먼트를 라디오에 맞게 구현
+class Radio implements Remocon{
+
+	@Override
+	public void poweron() {
+		// TODO Auto-generated method stub
+		System.out.println("Radio를 켭니다.");
+	}
+
+	@Override
+	public void poweroff() {
+		// TODO Auto-generated method stub
+		System.out.println("Radio를 끕니다.");
+	}
+	
+} 
+
+public class C03InterfaceMain {
+
+	public static void TurnOn(Remocon controller) // TV/라이도 객체 연결 
+							// Remocon controller = new Tv();
+	{
+		controller.poweron();
+	}
+	public static void TurnOff(Remocon controller) {
+		controller.poweroff();
+	}
+	
+	public static void main(String[] args) {
+		
+		// 객체 생성
+		Tv tv = new Tv();
+		Radio radio = new Radio();
+		
+		TurnOn(tv); 	// TurnOn으로 이동
+		TurnOn(radio); 	// TurnOn으로 이동
+		
+		TurnOff(tv);	// TurnOff로 이동
+		TurnOff(radio); // TurnOff로 이동
+	}
+
+}

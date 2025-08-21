@@ -1,0 +1,119 @@
+package Ch06;
+
+interface Remocon{
+	int MAX_VOL=100;		// public static final
+	int MIN_VOL=0;			// public static final
+	
+	void poweron();		// 추상메서드
+	void poweroff();	// 추상메서드
+	void setVolumn(int vol);
+}
+
+// 리모콘과 별개인 Browser
+interface Browser{
+	void searchURL(String url);
+}
+
+class Tv implements Remocon{
+	private int nowVol; 	// 현재 볼륨값 생성
+
+	@Override
+	public void poweron() {
+		System.out.println("TV를 켭니다.");
+	}
+
+	@Override
+	public void poweroff() {
+		System.out.println("TV를 끕니다.");
+	}
+
+	@Override
+	public void setVolumn(int vol) {
+		if(vol>=MAX_VOL)
+			this.nowVol=MAX_VOL;	 // 볼륨값이 MAX볼륨과 같거나 크면 MAX볼륨으로 설정
+		else if (vol <=MIN_VOL)
+			this.nowVol=MIN_VOL;	// 볼륨값이 MIN볼륨과 같거나 작으면 MIN볼륨 설정
+		else
+			this.nowVol = vol;		// 둘다 아니면 nowVol 설정
+		System.out.println("TV 현재 볼륨 : " + nowVol);		
+	}
+}
+class SmartTV extends Tv implements Browser
+{
+
+	@Override
+	public void searchURL(String url) {
+		System.out.println(url + "로 이동합니다-!");
+	}
+	
+}
+
+// 임플리먼트를 라디오에 맞게 구현
+class Radio implements Remocon{
+	private int nowVol; 	// 라디오에도 현재 볼륨 생성
+
+	@Override
+	public void poweron() {
+		// TODO Auto-generated method stub
+		System.out.println("Radio를 켭니다.");
+	}
+
+	@Override
+	public void poweroff() {
+		// TODO Auto-generated method stub
+		System.out.println("Radio를 끕니다.");
+	}
+
+	@Override
+	public void setVolumn(int vol) {
+		if(vol>=MAX_VOL)
+			this.nowVol=MAX_VOL;	 // 볼륨값이 MAX볼륨과 같거나 크면 MAX볼륨으로 설정
+		else if (vol <=MIN_VOL)
+			this.nowVol=MIN_VOL;	// 볼륨값이 MIN볼륨과 같거나 작으면 MIN볼륨 설정
+		else
+			this.nowVol = vol;		// 둘다 아니면 nowVol 설정
+		System.out.println("RADIO 현재 볼륨 : " + nowVol);
+		
+	}
+	
+} 
+
+public class C03InterfaceMain {
+
+	public static void TurnOn(Remocon controller) // TV/라디오 객체 연결 
+							// Remocon controller = new Tv();
+	{
+		controller.poweron();
+	}
+	public static void TurnOff(Remocon controller) {
+		controller.poweroff();
+	}
+	
+	public static void ChangeVolumn(Remocon controller, int vol) // 볼륨도 연결 
+	{
+		controller.setVolumn(vol);
+	}
+	
+	public static void Internet(Browser browser , String url) {
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		// 객체 생성
+		Tv tv = new Tv();
+		Radio radio = new Radio();
+		
+		TurnOn(tv); 	// TurnOn으로 이동
+		TurnOn(radio); 	// TurnOn으로 이동
+		System.out.println("---------------------------------");
+		ChangeVolumn(tv,50);
+		ChangeVolumn(tv,120);		// MAX볼륨인 100으로 설정
+		ChangeVolumn(radio,-20);	// MIN볼륨인 0으로 설정
+		ChangeVolumn(radio,70);
+		System.out.println("---------------------------------");
+		TurnOff(tv);	// TurnOff로 이동
+		TurnOff(radio); // TurnOff로 이동
+	}
+
+}

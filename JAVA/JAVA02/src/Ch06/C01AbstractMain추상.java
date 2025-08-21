@@ -32,7 +32,7 @@ public class C01AbstractMain추상 {
 		
 		System.out.println("============================");
 		// 추상 클래스 상속관계 | 추상클래스로 객체생성은 불가능함.
-//		Parent2 obj1 = new Parent2(); 	// 추상클래스로 객체 생성 X
+//		Parent2 obj1 = new Parent2(); 	// 추상클래스 자체로 객체 생성 X
 		Son2 obj2 = new Son2();			// 하위클래스형으로 객체 생성 O
 		Parent2 obj3 = new Son2();		// UPCASTING 연결 O
 		obj3.func();					// 재정의된 함수 접근 가능

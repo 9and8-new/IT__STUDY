@@ -6,7 +6,7 @@ class Parent2 {
 }
 
 class Son2 extends Parent2 {
-    @Override
+    @Override // 오버라이딩 된 자식의 doWork
     void doWork() { System.out.println("Son2 working (override)"); }
 
     // 자식에만 있는 '확장' 메서드
