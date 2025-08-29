@@ -1,9 +1,0 @@
-package C00;
-
-public class CO1HelloWorld {
-
-	public static void main(String[] args) {
-		System.out.println("HELLO WORLD");
-	}
-	
-}

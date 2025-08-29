@@ -1,0 +1,14 @@
+package Ch01;
+
+public class C04WrapperMain중요함 {
+
+	public static void main(String[] args) {
+		//Boxing(기본자료형 -> Wrapper Class)
+		Integer ob1 = new Integer(100);
+		Integer ob2 = new Integer("100");
+		Integer ob3 = Integer.valueOf("300");
+		System.out.println(ob1 + ob2 + ob3);
+
+	}
+
+}

@@ -1,0 +1,17 @@
+package Ch01;
+
+class A{
+	
+}
+
+public class C01ObjectMain {
+
+	public static void main(String[] args) {
+		
+		A ob1 = new A();
+		System.out.println(ob1);
+		System.out.println(ob1.toString());
+
+	}
+
+}

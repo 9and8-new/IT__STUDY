@@ -1,0 +1,10 @@
+package Ch02;
+
+public class C06ThrowAndThrowsMain예외처리파트중요 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

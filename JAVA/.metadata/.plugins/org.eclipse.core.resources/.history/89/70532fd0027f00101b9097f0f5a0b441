@@ -1,0 +1,18 @@
+package Ch02;
+
+public class C05ExceptionMain예외처리편하게 {
+
+	public static void main(String[] args) {
+		try {
+		String str = null;
+		str.toString();
+			
+			int[] arr = {10,20,30};
+			arr[5] = 100;
+		}catch(NullPointerException e1) {
+			System.out.println("NULLPOINTER 예외처리완료");
+		}
+		
+	}
+
+}

@@ -1,0 +1,26 @@
+package Ch02;
+
+class A{
+	public void Ex1() {
+		System.out.println("A's Ex1 Func Call!");
+	}
+}
+
+class B{
+	public void Ex2() {
+		System.out.println("B's Ex2 Func Call!");
+	}
+}
+public class C06ThrowAndThrowsMain예외처리파트중요 {
+
+	public static void main(String[] args) {
+		// 한쪽으로 예외를 던질때(몰아줄때) 사용 ★★★★
+		
+		A ob1 = new A();
+		B ob2 = new B();
+		
+		ob1.Ex1();
+		ob2.Ex2();
+	}
+
+}

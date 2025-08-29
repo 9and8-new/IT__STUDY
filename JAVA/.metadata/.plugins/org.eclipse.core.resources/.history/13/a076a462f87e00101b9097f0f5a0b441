@@ -1,0 +1,14 @@
+package Ch01;
+
+import java.util.Date;
+
+public class C05DateCalenderMain날짜정보 {
+
+	public static void main(String[] args) {
+		//Date
+		Date d1 = new Date();
+		System.out.println(d1);
+
+	}
+
+}
